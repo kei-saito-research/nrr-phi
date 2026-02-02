@@ -1,0 +1,4 @@
+# nrr-phi-mapping
+# No external dependencies required.
+# Uses only Python standard library (math, json, dataclasses, typing).
+# Python >= 3.7
