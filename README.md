@@ -2,7 +2,7 @@
 
 Reference implementation for the φ-mapping function described in:
 
-> **Saito, K. (2026). Text-to-State Mapping for Non-Resolution Reasoning: The Contradiction-Preservation Principle.**  
+> **Saito, K. (2026). NRR-Phi: Text-to-State Mapping for Ambiguity Preservation in LLM Inference.**  
 > arXiv:2601.19933
 
 This repository provides the **text-to-state mapping** (φ function) that converts natural language text into NRR states—non-collapsed representations that preserve semantic ambiguity as multiple co-existing interpretations.
@@ -10,7 +10,6 @@ This repository provides the **text-to-state mapping** (φ function) that conver
 ## Overview
 
 Standard NLP pipelines resolve ambiguity during encoding, collapsing multiple interpretations into a single representation. The φ-mapping takes the opposite approach:
-
 ```
 φ: Text → S = { (v₁, c₁, w₁), (v₂, c₂, w₂), ... }
 ```
@@ -23,7 +22,6 @@ Each interpretation `(vᵢ, cᵢ, wᵢ)` consists of:
 **Key property**: Weights are *not* constrained to sum to 1. Multiple interpretations can maintain high activation simultaneously, unlike softmax-normalized probability distributions.
 
 ## Repository Structure
-
 ```
 nrr-phi-mapping/
 ├── README.md
@@ -43,7 +41,6 @@ nrr-phi-mapping/
 ```
 
 ## Quick Start
-
 ```bash
 # Clone the repository
 git clone https://github.com/kei-saito-research/nrr-phi-mapping.git
@@ -57,7 +54,6 @@ python experiments/run_rule_based.py --output results/my_output.json
 ```
 
 ### As a library
-
 ```python
 from src import phi, NRRState
 
@@ -96,7 +92,6 @@ The `data/rule_based_states.json` file contains 40 semantically ambiguous senten
 ## Reproducing Paper 2 Results
 
 Running the experiment reproduces Table 2 from Paper 2:
-
 ```
 VERIFICATION AGAINST PAPER 2 TABLE 2
 
@@ -116,18 +111,17 @@ Where:
 
 This repository accompanies Paper 2 of the NRR research series:
 
-1. **Paper 1**: [Non-Resolution Reasoning (NRR): A Computational Framework for Contextual Identity and Ambiguity Preservation](https://arxiv.org/abs/2512.13478) — Theoretical foundations and A≠A≈A principle
-2. **Paper 2**: [Text-to-State Mapping for Non-Resolution Reasoning: The Contradiction-Preservation Principle](https://arxiv.org/abs/2601.19933) — φ-mapping and ambiguity-preserving states *(this repository)*
+1. **NRR-Core**: [NRR-Core: Non-Resolution Reasoning as a Computational Framework for Contextual Identity and Ambiguity Preservation](https://arxiv.org/abs/2512.13478) — Theoretical foundations and A≠A≈A principle
+2. **NRR-Phi**: [NRR-Phi: Text-to-State Mapping for Ambiguity Preservation in LLM Inference](https://arxiv.org/abs/2601.19933) — φ-mapping and ambiguity-preserving states *(this repository)*
 
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
 
 ## Citation
-
 ```bibtex
-@article{saito2026phi,
-  title={Text-to-State Mapping for Non-Resolution Reasoning: The Contradiction-Preservation Principle},
+@article{saito2026nrrphi,
+  title={NRR-Phi: Text-to-State Mapping for Ambiguity Preservation in LLM Inference},
   author={Saito, Kei},
   journal={arXiv preprint arXiv:2601.19933},
   year={2026}
