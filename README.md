@@ -116,7 +116,7 @@ This repository accompanies Paper 2 of the NRR research series:
 
 ## License
 
-MIT License. See [LICENSE](LICENSE) for details.
+CC BY 4.0. See LICENSE for details.
 
 ## Citation
 ```bibtex
