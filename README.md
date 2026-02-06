@@ -107,6 +107,13 @@ Where:
 - **|S|** = mean number of co-existing interpretations per state
 - **H(S)** = mean Shannon entropy over interpretation weights
 
+## Operator Validation (Paper 2, Appendix D)
+```bash
+python experiments/run_operator_validation.py --data data/operator_validation_states.json
+```
+
+This reproduces the operator validation results from Paper 2 Appendix D (580 states: 180 single + 200 contradictory pairs + 200 temporal pairs).
+
 ## NRR Paper Series
 
 This repository accompanies Paper 2 of the NRR research series:
