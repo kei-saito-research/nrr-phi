@@ -1,0 +1,678 @@
+claude
+
+======================================================================
+PROMPT 1: EPISTEMIC (15 sentences)
+======================================================================
+
+You are an interpretation extraction system. For each sentence below, extract ALL possible distinct interpretations.
+
+For each sentence, respond with:
+- id: the sentence ID
+- interpretations: array of distinct meanings (2-4 per sentence)
+- Each interpretation has: meaning, context, confidence (0.0-1.0)
+
+Return ONLY valid JSON, no other text.
+
+Sentences:
+1. epi_en_01: "I think I made the right choice."
+2. epi_en_02: "I believe this is what I need."
+3. epi_en_03: "It seems like everything is falling apart."
+4. epi_en_04: "I feel like I'm not good enough."
+5. epi_en_05: "I suppose I should be grateful."
+6. epi_en_06: "I think they're disappointed in me."
+7. epi_en_07: "It seems like no one understands."
+8. epi_en_08: "I believe I can change."
+9. epi_jp_01: "正しい選択をしたと思う。"
+10. epi_jp_02: "これが必要なものだと信じている。"
+11. epi_jp_03: "すべてが崩れていくような気がする。"
+12. epi_jp_04: "自分は十分じゃないような気がする。"
+13. epi_jp_05: "感謝すべきなのだろうと思う。"
+14. epi_jp_06: "彼らは私に失望していると思う。"
+15. epi_jp_07: "誰にも理解されていない気がする。"
+
+Expected format:
+{
+  "batch": "epistemic",
+  "results": [
+    {
+      "id": "epi_en_01",
+      "text": "I think I made the right choice.",
+      "interpretations": [
+        {"meaning": "Speaker is confident about their decision", "context": "assertion", "confidence": 0.7},
+        {"meaning": "Speaker is uncertain and seeking validation", "context": "hedge", "confidence": 0.6}
+      ]
+    },
+    ...
+  ]
+}
+
+{
+  "batch": "epistemic",
+  "results": [
+    {
+      "id": "epi_en_01",
+      "text": "I think I made the right choice.",
+      "interpretations": [
+        {"meaning": "Speaker is reasonably confident about their decision", "context": "reflective assertion", "confidence": 0.75},
+        {"meaning": "Speaker is uncertain and seeking reassurance", "context": "epistemic hedge", "confidence": 0.65},
+        {"meaning": "Speaker is trying to convince themselves", "context": "self-justification", "confidence": 0.60}
+      ]
+    },
+    {
+      "id": "epi_en_02",
+      "text": "I believe this is what I need.",
+      "interpretations": [
+        {"meaning": "Speaker has strong conviction about a necessity", "context": "confident assertion", "confidence": 0.80},
+        {"meaning": "Speaker is expressing hope rather than certainty", "context": "wishful thinking", "confidence": 0.55},
+        {"meaning": "Speaker is rationalizing a decision already made", "context": "post-hoc justification", "confidence": 0.60}
+      ]
+    },
+    {
+      "id": "epi_en_03",
+      "text": "It seems like everything is falling apart.",
+      "interpretations": [
+        {"meaning": "Speaker perceives genuine crisis or breakdown", "context": "distressed observation", "confidence": 0.70},
+        {"meaning": "Speaker is catastrophizing minor problems", "context": "cognitive distortion", "confidence": 0.65},
+        {"meaning": "Speaker feels overwhelmed by multiple stressors", "context": "emotional overwhelm", "confidence": 0.75},
+        {"meaning": "Speaker is tentatively assessing a difficult situation", "context": "cautious evaluation", "confidence": 0.50}
+      ]
+    },
+    {
+      "id": "epi_en_04",
+      "text": "I feel like I'm not good enough.",
+      "interpretations": [
+        {"meaning": "Speaker experiences low self-worth", "context": "negative self-evaluation", "confidence": 0.85},
+        {"meaning": "Speaker feels inadequate for a specific task or role", "context": "situational inadequacy", "confidence": 0.75},
+        {"meaning": "Speaker is expressing imposter syndrome", "context": "self-doubt despite competence", "confidence": 0.70},
+        {"meaning": "Speaker received critical feedback and is processing it", "context": "external feedback response", "confidence": 0.60}
+      ]
+    },
+    {
+      "id": "epi_en_05",
+      "text": "I suppose I should be grateful.",
+      "interpretations": [
+        {"meaning": "Speaker recognizes blessings but struggles to feel gratitude", "context": "emotional disconnect", "confidence": 0.75},
+        {"meaning": "Speaker feels social pressure to express gratitude", "context": "obligatory sentiment", "confidence": 0.70},
+        {"meaning": "Speaker is minimizing their own needs or dissatisfaction", "context": "self-invalidation", "confidence": 0.65},
+        {"meaning": "Speaker is genuinely reflecting on reasons for gratitude", "context": "contemplative acknowledgment", "confidence": 0.55}
+      ]
+    },
+    {
+      "id": "epi_en_06",
+      "text": "I think they're disappointed in me.",
+      "interpretations": [
+        {"meaning": "Speaker perceives actual signs of disappointment", "context": "observation-based inference", "confidence": 0.70},
+        {"meaning": "Speaker is projecting their own self-criticism", "context": "internal projection", "confidence": 0.75},
+        {"meaning": "Speaker fears disappointing others without evidence", "context": "anxiety-driven assumption", "confidence": 0.65},
+        {"meaning": "Speaker received implicit negative feedback", "context": "interpretation of subtle cues", "confidence": 0.60}
+      ]
+    },
+    {
+      "id": "epi_en_07",
+      "text": "It seems like no one understands.",
+      "interpretations": [
+        {"meaning": "Speaker feels genuinely isolated and misunderstood", "context": "emotional isolation", "confidence": 0.80},
+        {"meaning": "Speaker has difficulty communicating their experience", "context": "communication barrier", "confidence": 0.65},
+        {"meaning": "Speaker is in a unique situation others haven't experienced", "context": "situational uniqueness", "confidence": 0.60},
+        {"meaning": "Speaker expects mind-reading rather than expressing needs", "context": "unrealistic expectation", "confidence": 0.50}
+      ]
+    },
+    {
+      "id": "epi_en_08",
+      "text": "I believe I can change.",
+      "interpretations": [
+        {"meaning": "Speaker has genuine confidence in their capacity for growth", "context": "self-efficacy", "confidence": 0.75},
+        {"meaning": "Speaker is expressing hope despite uncertainty", "context": "aspirational belief", "confidence": 0.70},
+        {"meaning": "Speaker is affirming change as part of recovery or growth process", "context": "therapeutic commitment", "confidence": 0.65},
+        {"meaning": "Speaker is trying to convince themselves of possibility", "context": "self-encouragement", "confidence": 0.60}
+      ]
+    },
+    {
+      "id": "epi_jp_01",
+      "text": "正しい選択をしたと思う。",
+      "interpretations": [
+        {"meaning": "Speaker is reasonably confident about their decision", "context": "reflective assertion", "confidence": 0.75},
+        {"meaning": "Speaker is uncertain and seeking reassurance", "context": "epistemic hedge", "confidence": 0.65},
+        {"meaning": "Speaker is trying to convince themselves", "context": "self-justification", "confidence": 0.60}
+      ]
+    },
+    {
+      "id": "epi_jp_02",
+      "text": "これが必要なものだと信じている。",
+      "interpretations": [
+        {"meaning": "Speaker has strong conviction about a necessity", "context": "confident assertion", "confidence": 0.80},
+        {"meaning": "Speaker is expressing hope rather than certainty", "context": "wishful thinking", "confidence": 0.55},
+        {"meaning": "Speaker is rationalizing a decision already made", "context": "post-hoc justification", "confidence": 0.60}
+      ]
+    },
+    {
+      "id": "epi_jp_03",
+      "text": "すべてが崩れていくような気がする。",
+      "interpretations": [
+        {"meaning": "Speaker perceives genuine crisis or breakdown", "context": "distressed observation", "confidence": 0.70},
+        {"meaning": "Speaker is catastrophizing minor problems", "context": "cognitive distortion", "confidence": 0.65},
+        {"meaning": "Speaker feels overwhelmed by multiple stressors", "context": "emotional overwhelm", "confidence": 0.75},
+        {"meaning": "Speaker is tentatively assessing a difficult situation", "context": "cautious evaluation", "confidence": 0.50}
+      ]
+    },
+    {
+      "id": "epi_jp_04",
+      "text": "自分は十分じゃないような気がする。",
+      "interpretations": [
+        {"meaning": "Speaker experiences low self-worth", "context": "negative self-evaluation", "confidence": 0.85},
+        {"meaning": "Speaker feels inadequate for a specific task or role", "context": "situational inadequacy", "confidence": 0.75},
+        {"meaning": "Speaker is expressing imposter syndrome", "context": "self-doubt despite competence", "confidence": 0.70},
+        {"meaning": "Speaker received critical feedback and is processing it", "context": "external feedback response", "confidence": 0.60}
+      ]
+    },
+    {
+      "id": "epi_jp_05",
+      "text": "感謝すべきなのだろうと思う。",
+      "interpretations": [
+        {"meaning": "Speaker recognizes blessings but struggles to feel gratitude", "context": "emotional disconnect", "confidence": 0.75},
+        {"meaning": "Speaker feels social pressure to express gratitude", "context": "obligatory sentiment", "confidence": 0.70},
+        {"meaning": "Speaker is minimizing their own needs or dissatisfaction", "context": "self-invalidation", "confidence": 0.65},
+        {"meaning": "Speaker is genuinely reflecting on reasons for gratitude", "context": "contemplative acknowledgment", "confidence": 0.55}
+      ]
+    },
+    {
+      "id": "epi_jp_06",
+      "text": "彼らは私に失望していると思う。",
+      "interpretations": [
+        {"meaning": "Speaker perceives actual signs of disappointment", "context": "observation-based inference", "confidence": 0.70},
+        {"meaning": "Speaker is projecting their own self-criticism", "context": "internal projection", "confidence": 0.75},
+        {"meaning": "Speaker fears disappointing others without evidence", "context": "anxiety-driven assumption", "confidence": 0.65},
+        {"meaning": "Speaker received implicit negative feedback", "context": "interpretation of subtle cues", "confidence": 0.60}
+      ]
+    },
+    {
+      "id": "epi_jp_07",
+      "text": "誰にも理解されていない気がする。",
+      "interpretations": [
+        {"meaning": "Speaker feels genuinely isolated and misunderstood", "context": "emotional isolation", "confidence": 0.80},
+        {"meaning": "Speaker has difficulty communicating their experience", "context": "communication barrier", "confidence": 0.65},
+        {"meaning": "Speaker is in a unique situation others haven't experienced", "context": "situational uniqueness", "confidence": 0.60},
+        {"meaning": "Speaker expects mind-reading rather than expressing needs", "context": "unrealistic expectation", "confidence": 0.50}
+      ]
+    }
+  ]
+}
+
+======================================================================
+PROMPT 2: LEXICAL (15 sentences)
+======================================================================
+
+You are an interpretation extraction system. For each sentence below, extract ALL possible distinct interpretations based on lexical ambiguity (word sense, polysemy).
+
+For each sentence, respond with:
+- id: the sentence ID
+- interpretations: array of distinct meanings (2-4 per sentence)
+- Each interpretation has: meaning, context, confidence (0.0-1.0)
+
+Return ONLY valid JSON, no other text.
+
+Sentences:
+1. lex_en_01: "I saw her duck."
+2. lex_en_02: "The bank was closed."
+3. lex_en_03: "She can't bear children."
+4. lex_en_04: "Time flies like an arrow."
+5. lex_en_05: "I need to get some light."
+6. lex_en_06: "The chicken is ready to eat."
+7. lex_en_07: "Visiting relatives can be boring."
+8. lex_en_08: "The old man the boats."
+9. lex_en_09: "Flying planes can be dangerous."
+10. lex_en_10: "I saw the man with the telescope."
+11. lex_jp_01: "橋を渡った。"
+12. lex_jp_02: "雨が降る。"
+13. lex_jp_03: "花が咲いた。"
+14. lex_jp_04: "彼は先生を見た。"
+15. lex_jp_05: "きれいな水の音。"
+
+Expected format:
+{
+  "batch": "lexical",
+  "results": [
+    {
+      "id": "lex_en_01",
+      "text": "I saw her duck.",
+      "interpretations": [
+        {"meaning": "I observed her pet duck (the bird)", "context": "noun-reading", "confidence": 0.5},
+        {"meaning": "I saw her lower her head quickly", "context": "verb-reading", "confidence": 0.5}
+      ]
+    },
+    ...
+  ]
+}
+
+{
+  "batch": "lexical",
+  "results": [
+    {
+      "id": "lex_en_01",
+      "text": "I saw her duck.",
+      "interpretations": [
+        {"meaning": "I observed her pet duck (the bird)", "context": "noun-reading", "confidence": 0.5},
+        {"meaning": "I saw her lower her head quickly", "context": "verb-reading", "confidence": 0.5}
+      ]
+    },
+    {
+      "id": "lex_en_02",
+      "text": "The bank was closed.",
+      "interpretations": [
+        {"meaning": "The financial institution was not open", "context": "financial-institution", "confidence": 0.7},
+        {"meaning": "The edge of a river was blocked off", "context": "river-edge", "confidence": 0.3}
+      ]
+    },
+    {
+      "id": "lex_en_03",
+      "text": "She can't bear children.",
+      "interpretations": [
+        {"meaning": "She is unable to give birth to children", "context": "reproduce", "confidence": 0.6},
+        {"meaning": "She cannot tolerate or endure children", "context": "tolerate", "confidence": 0.4}
+      ]
+    },
+    {
+      "id": "lex_en_04",
+      "text": "Time flies like an arrow.",
+      "interpretations": [
+        {"meaning": "Time passes quickly in a straight manner", "context": "idiom-time-passes", "confidence": 0.8},
+        {"meaning": "A species called time flies have a preference similar to an arrow", "context": "insect-preference", "confidence": 0.1},
+        {"meaning": "Measure the speed of flies in the same way you would measure an arrow", "context": "imperative-measurement", "confidence": 0.1}
+      ]
+    },
+    {
+      "id": "lex_en_05",
+      "text": "I need to get some light.",
+      "interpretations": [
+        {"meaning": "I need to obtain illumination or a lamp", "context": "illumination", "confidence": 0.5},
+        {"meaning": "I need to get something that is not heavy", "context": "weight", "confidence": 0.2},
+        {"meaning": "I need to get a fire source or lighter", "context": "fire-source", "confidence": 0.3}
+      ]
+    },
+    {
+      "id": "lex_en_06",
+      "text": "The chicken is ready to eat.",
+      "interpretations": [
+        {"meaning": "The cooked chicken is prepared and can be consumed", "context": "food-prepared", "confidence": 0.7},
+        {"meaning": "The live chicken is hungry and ready to consume food", "context": "animal-hungry", "confidence": 0.3}
+      ]
+    },
+    {
+      "id": "lex_en_07",
+      "text": "Visiting relatives can be boring.",
+      "interpretations": [
+        {"meaning": "Going to see relatives can be uninteresting", "context": "gerund-action", "confidence": 0.6},
+        {"meaning": "Relatives who are visiting can be uninteresting", "context": "participle-subject", "confidence": 0.4}
+      ]
+    },
+    {
+      "id": "lex_en_08",
+      "text": "The old man the boats.",
+      "interpretations": [
+        {"meaning": "Elderly people operate or crew the boats", "context": "old-as-noun-subject", "confidence": 0.5},
+        {"meaning": "The elderly person operates the boats", "context": "old-man-as-subject", "confidence": 0.5}
+      ]
+    },
+    {
+      "id": "lex_en_09",
+      "text": "Flying planes can be dangerous.",
+      "interpretations": [
+        {"meaning": "Piloting aircraft can be hazardous", "context": "gerund-action", "confidence": 0.6},
+        {"meaning": "Airborne aircraft can be hazardous", "context": "participle-subject", "confidence": 0.4}
+      ]
+    },
+    {
+      "id": "lex_en_10",
+      "text": "I saw the man with the telescope.",
+      "interpretations": [
+        {"meaning": "I used a telescope to observe the man", "context": "instrument-of-seeing", "confidence": 0.5},
+        {"meaning": "I observed a man who was holding a telescope", "context": "man-possessing-telescope", "confidence": 0.5}
+      ]
+    },
+    {
+      "id": "lex_jp_01",
+      "text": "橋を渡った。",
+      "interpretations": [
+        {"meaning": "Crossed over a bridge (structure)", "context": "bridge-structure", "confidence": 0.6},
+        {"meaning": "Crossed at/near a location called Hashi (place name)", "context": "place-name", "confidence": 0.2},
+        {"meaning": "Went across an edge or border", "context": "edge-boundary", "confidence": 0.2}
+      ]
+    },
+    {
+      "id": "lex_jp_02",
+      "text": "雨が降る。",
+      "interpretations": [
+        {"meaning": "Rain is falling (weather phenomenon)", "context": "precipitation", "confidence": 0.9},
+        {"meaning": "Ame (a person's name) is descending", "context": "name-descending", "confidence": 0.1}
+      ]
+    },
+    {
+      "id": "lex_jp_03",
+      "text": "花が咲いた。",
+      "interpretations": [
+        {"meaning": "Flowers bloomed", "context": "floral-blooming", "confidence": 0.7},
+        {"meaning": "Hana (a person's name) bloomed/flourished metaphorically", "context": "name-metaphor", "confidence": 0.2},
+        {"meaning": "Something beautiful appeared or developed", "context": "metaphorical-blooming", "confidence": 0.1}
+      ]
+    },
+    {
+      "id": "lex_jp_04",
+      "text": "彼は先生を見た。",
+      "interpretations": [
+        {"meaning": "He saw the teacher", "context": "teacher-profession", "confidence": 0.7},
+        {"meaning": "He saw the doctor", "context": "doctor-profession", "confidence": 0.2},
+        {"meaning": "He looked at Sensei (a name)", "context": "personal-name", "confidence": 0.1}
+      ]
+    },
+    {
+      "id": "lex_jp_05",
+      "text": "きれいな水の音。",
+      "interpretations": [
+        {"meaning": "The sound of clean water", "context": "clean-water-sound", "confidence": 0.5},
+        {"meaning": "The sound of beautiful water", "context": "beautiful-water-sound", "confidence": 0.5}
+      ]
+    }
+  ]
+}
+
+======================================================================
+PROMPT 3: STRUCTURAL (15 sentences)
+======================================================================
+
+You are an interpretation extraction system. For each sentence below, extract ALL possible distinct interpretations based on structural/syntactic ambiguity (PP attachment, scope, parsing).
+
+For each sentence, respond with:
+- id: the sentence ID
+- interpretations: array of distinct meanings (2-4 per sentence)
+- Each interpretation has: meaning, context, confidence (0.0-1.0)
+
+Return ONLY valid JSON, no other text.
+
+Sentences:
+1. str_en_01: "I shot an elephant in my pajamas."
+2. str_en_02: "The professor said the student failed yesterday."
+3. str_en_03: "Every student didn't pass the exam."
+4. str_en_04: "John saw the man on the hill with a telescope."
+5. str_en_05: "The horse raced past the barn fell."
+6. str_en_06: "I convinced her children are noisy."
+7. str_en_07: "The man who whistles tunes pianos."
+8. str_en_08: "We saw her duck."
+9. str_en_09: "The complex houses married soldiers."
+10. str_en_10: "Fat people eat accumulates."
+11. str_jp_01: "美しい水車小屋の娘。"
+12. str_jp_02: "学生が先生を殴った男を見た。"
+13. str_jp_03: "すべての学生が来なかった。"
+14. str_jp_04: "走る子供を追いかける犬。"
+15. str_jp_05: "彼女は泣きながら走る少年を見た。"
+
+Expected format:
+{
+  "batch": "structural",
+  "results": [
+    {
+      "id": "str_en_01",
+      "text": "I shot an elephant in my pajamas.",
+      "interpretations": [
+        {"meaning": "I was wearing pajamas when I shot the elephant", "context": "speaker-attachment", "confidence": 0.7},
+        {"meaning": "The elephant was somehow in my pajamas", "context": "elephant-attachment", "confidence": 0.3}
+      ]
+    },
+    ...
+  ]
+}
+
+{
+  "batch": "structural",
+  "results": [
+    {
+      "id": "str_en_01",
+      "text": "I shot an elephant in my pajamas.",
+      "interpretations": [
+        {
+          "meaning": "I was wearing pajamas when I shot the elephant",
+          "context": "PP-attachment to verb phrase (subject wearing pajamas)",
+          "confidence": 0.7
+        },
+        {
+          "meaning": "The elephant was wearing or inside my pajamas",
+          "context": "PP-attachment to noun phrase (elephant in pajamas)",
+          "confidence": 0.3
+        }
+      ]
+    },
+    {
+      "id": "str_en_02",
+      "text": "The professor said the student failed yesterday.",
+      "interpretations": [
+        {
+          "meaning": "The professor made the statement yesterday about the student failing",
+          "context": "temporal adverb modifies 'said' (time of saying)",
+          "confidence": 0.6
+        },
+        {
+          "meaning": "The professor said that the student failed yesterday",
+          "context": "temporal adverb modifies 'failed' (time of failure)",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "id": "str_en_03",
+      "text": "Every student didn't pass the exam.",
+      "interpretations": [
+        {
+          "meaning": "Not all students passed; some failed",
+          "context": "negation has narrow scope (partial negation)",
+          "confidence": 0.5
+        },
+        {
+          "meaning": "All students failed; none passed",
+          "context": "negation has wide scope (total negation)",
+          "confidence": 0.5
+        }
+      ]
+    },
+    {
+      "id": "str_en_04",
+      "text": "John saw the man on the hill with a telescope.",
+      "interpretations": [
+        {
+          "meaning": "John used a telescope to see the man who was on the hill",
+          "context": "PP 'with telescope' attaches to verb (instrument of seeing)",
+          "confidence": 0.4
+        },
+        {
+          "meaning": "John saw the man who was on the hill, and the man had a telescope",
+          "context": "PP 'with telescope' attaches to 'man' (possession)",
+          "confidence": 0.35
+        },
+        {
+          "meaning": "John saw the man who was on a hill that has a telescope",
+          "context": "PP 'with telescope' attaches to 'hill' (hill feature)",
+          "confidence": 0.25
+        }
+      ]
+    },
+    {
+      "id": "str_en_05",
+      "text": "The horse raced past the barn fell.",
+      "interpretations": [
+        {
+          "meaning": "The horse that was raced past the barn fell down",
+          "context": "garden-path: 'raced' as past participle in reduced relative clause",
+          "confidence": 0.6
+        },
+        {
+          "meaning": "Initial parse fails: interpreting 'raced' as main verb creates ungrammatical structure",
+          "context": "garden-path misparse: 'raced' initially read as simple past",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "id": "str_en_06",
+      "text": "I convinced her children are noisy.",
+      "interpretations": [
+        {
+          "meaning": "I convinced her that children (in general) are noisy",
+          "context": "'her' as object of 'convinced', 'children are noisy' as complement clause",
+          "confidence": 0.55
+        },
+        {
+          "meaning": "I became convinced that her children are noisy",
+          "context": "'convinced' as adjective, 'her children' as subject of subordinate clause",
+          "confidence": 0.45
+        }
+      ]
+    },
+    {
+      "id": "str_en_07",
+      "text": "The man who whistles tunes pianos.",
+      "interpretations": [
+        {
+          "meaning": "The man who whistles is someone who tunes pianos",
+          "context": "'tunes' as verb (main predicate), 'pianos' as object",
+          "confidence": 0.55
+        },
+        {
+          "meaning": "The man who whistles tunes (melodies) also plays/performs on pianos",
+          "context": "'tunes' as noun (object of 'whistles'), 'pianos' as separate verb/noun",
+          "confidence": 0.45
+        }
+      ]
+    },
+    {
+      "id": "str_en_08",
+      "text": "We saw her duck.",
+      "interpretations": [
+        {
+          "meaning": "We saw a duck that belongs to her",
+          "context": "'duck' as noun, 'her' as possessive determiner",
+          "confidence": 0.5
+        },
+        {
+          "meaning": "We saw her perform the action of ducking down",
+          "context": "'duck' as verb, 'her' as object pronoun",
+          "confidence": 0.5
+        }
+      ]
+    },
+    {
+      "id": "str_en_09",
+      "text": "The complex houses married soldiers.",
+      "interpretations": [
+        {
+          "meaning": "The apartment/housing complex provides housing for married soldiers",
+          "context": "'complex' as noun, 'houses' as verb, 'married' as adjective",
+          "confidence": 0.6
+        },
+        {
+          "meaning": "The complicated/complex houses are occupied by married soldiers",
+          "context": "'complex' as adjective, 'houses' as noun, 'married' as adjective",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "id": "str_en_10",
+      "text": "Fat people eat accumulates.",
+      "interpretations": [
+        {
+          "meaning": "The fat that people eat accumulates in the body",
+          "context": "'fat' as noun, 'people eat' as relative clause modifying 'fat'",
+          "confidence": 0.65
+        },
+        {
+          "meaning": "Overweight people eat, and this accumulates (weight/effects)",
+          "context": "'fat' as adjective, 'people' as subject, 'eat' as verb, elliptical object",
+          "confidence": 0.35
+        }
+      ]
+    },
+    {
+      "id": "str_jp_01",
+      "text": "美しい水車小屋の娘。",
+      "interpretations": [
+        {
+          "meaning": "The beautiful daughter of the watermill cottage",
+          "context": "'美しい' modifies '娘' (daughter is beautiful)",
+          "confidence": 0.6
+        },
+        {
+          "meaning": "The daughter of the beautiful watermill cottage",
+          "context": "'美しい' modifies '水車小屋' (cottage is beautiful)",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "id": "str_jp_02",
+      "text": "学生が先生を殴った男を見た。",
+      "interpretations": [
+        {
+          "meaning": "The student saw the man who hit the teacher",
+          "context": "'殴った男' as relative clause (man who hit), '学生が' as subject of '見た'",
+          "confidence": 0.5
+        },
+        {
+          "meaning": "The student who hit the teacher saw the man",
+          "context": "'殴った' modifies '学生' (student who hit), then saw the man",
+          "confidence": 0.3
+        },
+        {
+          "meaning": "The man saw that the student hit the teacher",
+          "context": "alternative case particle interpretation with complex embedding",
+          "confidence": 0.2
+        }
+      ]
+    },
+    {
+      "id": "str_jp_03",
+      "text": "すべての学生が来なかった。",
+      "interpretations": [
+        {
+          "meaning": "Not all students came (some came, some didn't)",
+          "context": "negation with narrow scope (partial negation)",
+          "confidence": 0.55
+        },
+        {
+          "meaning": "All students didn't come (none came)",
+          "context": "negation with wide scope (total negation)",
+          "confidence": 0.45
+        }
+      ]
+    },
+    {
+      "id": "str_jp_04",
+      "text": "走る子供を追いかける犬。",
+      "interpretations": [
+        {
+          "meaning": "A dog chasing a child who is running",
+          "context": "'走る' modifies '子供' (running child being chased)",
+          "confidence": 0.7
+        },
+        {
+          "meaning": "A running dog chasing a child",
+          "context": "'走る' modifies implied subject, then '子供を追いかける犬'",
+          "confidence": 0.3
+        }
+      ]
+    },
+    {
+      "id": "str_jp_05",
+      "text": "彼女は泣きながら走る少年を見た。",
+      "interpretations": [
+        {
+          "meaning": "She saw a boy who was running while crying",
+          "context": "'泣きながら走る' both modify '少年' (boy crying and running)",
+          "confidence": 0.6
+        },
+        {
+          "meaning": "She, while crying, saw a boy who was running",
+          "context": "'泣きながら' modifies '見た' (she was crying), '走る' modifies '少年'",
+          "confidence": 0.4
+        }
+      ]
+    }
+  ]
+}
