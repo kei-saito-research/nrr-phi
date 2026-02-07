@@ -28,7 +28,7 @@ nrr-phi/
 │
 ├── experiments/                  # Reproducibility scripts
 │   ├── rule_based_experiment.py          # Main text: Table 2
-│   └── run_operator_validation.py        # Appendix D: Table 5, Figures 4-5
+│   └── run_operator_validation.py        # Appendix D: Table 7, Figures 4-5
 │
 ├── prompts/                      # LLM experiment prompts + responses
 │   ├── GPTprompts_for_kei.txt            # ChatGPT prompts + outputs
@@ -78,7 +78,7 @@ print(state_jp)        # NRRState(|S|=2, H=1.000, lang=JP, cat=adversative)
 |---|---|---|---|
 | Rule-based (Table 2) | data/rule_based_data.json | experiments/rule_based_experiment.py | results/rule_based_output.json |
 | LLM-based (Table 3) | prompts/*.txt | Manual (free-tier web UI) | Embedded in prompt files |
-| Operator validation (Table 5) | data/operator_validation_states.json | experiments/run_operator_validation.py | results/operator_validation_results.json |
+| Operator validation (Table 7) | data/operator_validation_states.json | experiments/run_operator_validation.py | results/operator_validation_results.json |
 
 ## Key Results
 
@@ -94,7 +94,7 @@ print(state_jp)        # NRRState(|S|=2, H=1.000, lang=JP, cat=adversative)
 
 ## Related Repositories
 
-- [NRR-Core](https://github.com/kei-saito-research/nrr-framework) - Foundational framework *(arXiv:2512.13478)*
+- [NRR-Core](https://github.com/kei-saito-research/nrr-core) - Foundational framework *(arXiv:2512.13478)*
 - [NRR-IME](https://github.com/kei-saito-research/nrr-ime) - Structure-aware optimization
 - [NRR-Universal](https://github.com/kei-saito-research/nrr-universal) - Universal generality validation
 
