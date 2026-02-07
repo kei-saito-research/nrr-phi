@@ -103,8 +103,3 @@ print(state_jp)        # NRRState(|S|=2, H=1.000, lang=JP, cat=adversative)
 ## License
 
 CC BY 4.0 — See [LICENSE](LICENSE) for details.
-```
-
-コミットメッセージ：
-```
-Update README to match renamed files
