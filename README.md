@@ -40,8 +40,8 @@ nrr-phi/
 │
 ├── LICENSE                       # CC BY 4.0
 ├── README.md
-└── requirements.txt              # Python
-dependencies 
+└── requirements.txt              # Python dependencies
+```
 
 ## Quick Start
 
