@@ -1,7 +1,3 @@
-いや
-
-
-
 # NRR-Phi: Text-to-State Mapping for Ambiguity Preservation in LLM Inference
 
 Reference implementation and reproducibility package for:
