@@ -52,7 +52,7 @@ cd experiments
 python rule_based_experiment.py
 ```
 
-### Operator validation (Appendix D, Table 5)
+### Operator validation (Appendix D, Table 7)
 
 ```bash
 cd experiments
