@@ -8,7 +8,6 @@ Part of the Non-Resolution Reasoning (NRR) research program.
 Paper 1 (NRR-Core): [arXiv:2512.13478](https://arxiv.org/abs/2512.13478)
 
 ## Repository Structure
-
 ```
 nrr-phi/
 ├── src/                          # Core library
@@ -18,12 +17,12 @@ nrr-phi/
 │   └── conflict_detection.py     # Linguistic marker detection (EN/JP)
 │
 ├── data/                         # Input data
-│   ├── paper2_rule_based_data.json       # 40 sentences (adv 20 + hdg 20)
+│   ├── rule_based_data.json              # 40 sentences (adv 20 + hdg 20)
 │   └── operator_validation_states.json   # 580 test cases (Appendix D)
 │
 ├── results/                      # Experiment outputs
 │   ├── rule_based_output.json            # Rule-based extraction results
-│   └── paper3_results_2026-02-04.json    # Operator validation results
+│   └── operator_validation_results.json  # Operator validation results
 │
 ├── experiments/                  # Reproducibility scripts
 │   ├── rule_based_experiment.py          # Main text: Table 2
@@ -35,10 +34,10 @@ nrr-phi/
 │   └── claudeprompts_for_kei_2_2.txt     # Claude prompts + outputs
 │
 ├── notebooks/                    # Experiment notebooks
-│   └── paper3_operators_FIXED_v2.ipynb   # Operator validation notebook
+│   └── operator_validation.ipynb         # Operator validation notebook
 │
 ├── paper/                        # Manuscript
-│   ├── paper2_nrr-phi_v14.tex
+│   ├── nrr-phi_v14.tex
 │   └── figures/                  # figure1.png – figure5.png
 │
 ├── LICENSE                       # CC BY 4.0
@@ -48,21 +47,18 @@ nrr-phi/
 ## Quick Start
 
 ### Rule-based extraction (Table 2)
-
 ```bash
 cd experiments
 python rule_based_experiment.py
 ```
 
 ### Operator validation (Appendix D, Table 5)
-
 ```bash
 cd experiments
 python run_operator_validation.py --data ../data/operator_validation_states.json
 ```
 
 ### Using the φ mapping library
-
 ```python
 from src.phi_mapping import phi
 
@@ -78,9 +74,9 @@ print(state_jp)        # NRRState(|S|=2, H=1.000, lang=JP, cat=adversative)
 
 | Experiment | Data | Script | Results |
 |---|---|---|---|
-| Rule-based (Table 2) | `data/paper2_rule_based_data.json` | `experiments/rule_based_experiment.py` | `results/rule_based_output.json` |
+| Rule-based (Table 2) | `data/rule_based_data.json` | `experiments/rule_based_experiment.py` | `results/rule_based_output.json` |
 | LLM-based (Table 3) | `prompts/*.txt` | Manual (free-tier web UI) | Embedded in prompt files |
-| Operator validation (Table 5) | `data/operator_validation_states.json` | `experiments/run_operator_validation.py` | `results/paper3_results_2026-02-04.json` |
+| Operator validation (Table 5) | `data/operator_validation_states.json` | `experiments/run_operator_validation.py` | `results/operator_validation_results.json` |
 
 ## Key Results
 
@@ -95,7 +91,6 @@ print(state_jp)        # NRRState(|S|=2, H=1.000, lang=JP, cat=adversative)
 - NumPy
 
 ## Citation
-
 ```bibtex
 @article{saito2026nrrphi,
   title={NRR-Phi: Text-to-State Mapping for Ambiguity Preservation in LLM Inference},
@@ -108,3 +103,8 @@ print(state_jp)        # NRRState(|S|=2, H=1.000, lang=JP, cat=adversative)
 ## License
 
 CC BY 4.0 — See [LICENSE](LICENSE) for details.
+```
+
+コミットメッセージ：
+```
+Update README to match renamed files
