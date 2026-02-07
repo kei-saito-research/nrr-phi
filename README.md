@@ -38,13 +38,10 @@ nrr-phi/
 ├── notebooks/                    # Experiment notebooks
 │   └── operator_validation.ipynb         # Operator validation notebook
 │
-├── paper/                        # Manuscript
-│   ├── nrr-phi_v14.tex
-│   └── figures/                  # figure1.png – figure5.png
-│
 ├── LICENSE                       # CC BY 4.0
-└── README.md
-```
+├── README.md
+└── requirements.txt              # Python
+dependencies 
 
 ## Quick Start
 
