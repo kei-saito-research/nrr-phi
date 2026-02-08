@@ -111,7 +111,7 @@ print(state_jp)        # NRRState(|S|=2, H=1.000, lang=JP, cat=adversative)
 
 ## Commercial Use
 
-This work is released openly.
+This work is released openly under a CC BY 4.0 license.
 
 If you plan to use it in a commercial or production setting,
 a short message would be appreciated.
@@ -119,4 +119,13 @@ It helps me understand real-world use and continue the research.
 
 ## License
 
-CC BY 4.0 — See [LICENSE](LICENSE) for details.
+CC BY 4.0 License. See [LICENSE](LICENSE).
+
+---
+
+## Contact
+
+Kei Saito  
+Independent Researcher, Japan  
+ORCID: [0009-0006-4715-9176](https://orcid.org/0009-0006-4715-9176)  
+Email: kei.saito.research@gmail.com
