@@ -5,6 +5,7 @@ Reference implementation and reproducibility package for:
 > Saito, K. (2026). *NRR-Phi: Text-to-State Mapping for Ambiguity Preservation in LLM Inference.* arXiv:2601.19933
 
 Part of the Non-Resolution Reasoning (NRR) research program.
+Program Map (series hub): [NRR Program Map](https://github.com/kei-saito-research/nrr-core/blob/main/PROGRAM_MAP.md)
 
 NRR-Core: [arXiv:2512.13478](https://arxiv.org/abs/2512.13478)
 
