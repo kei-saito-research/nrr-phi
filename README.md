@@ -97,7 +97,7 @@ print(state_jp)        # NRRState(|S|=2, H=1.000, lang=JP, cat=adversative)
 
 - [NRR-Core](https://github.com/kei-saito-research/nrr-core) - Foundational framework *(arXiv:2512.13478)*
 - [NRR-IME](https://github.com/kei-saito-research/nrr-ime) - Structure-aware optimization
-- [NRR-Universal](https://github.com/kei-saito-research/nrr-universal) - Universal generality validation
+- [NRR-Transfer](https://github.com/kei-saito-research/nrr-transfer) - Cross-domain transfer validation
 
 ## Citation
 
@@ -109,6 +109,10 @@ print(state_jp)        # NRRState(|S|=2, H=1.000, lang=JP, cat=adversative)
   year={2026}
 }
 ```
+
+## Reproducibility
+
+See [`reproducibility.md`](./reproducibility.md) for environment, fixed settings, runnable commands, and artifact mapping.
 
 ## Commercial Use
 
