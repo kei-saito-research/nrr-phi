@@ -6,6 +6,7 @@ Reference implementation and reproducibility package for:
 
 Part of the Non-Resolution Reasoning (NRR) research program.
 Program Map (series hub): [NRR Program Map](https://github.com/kei-saito-research/nrr-core/blob/main/PROGRAM_MAP.md)
+Version mapping source of truth: [`VERSION_MAP.md`](./VERSION_MAP.md)
 
 NRR-Core: [arXiv:2512.13478](https://arxiv.org/abs/2512.13478)
 
@@ -40,29 +41,42 @@ nrr-phi/
 │   └── operator_validation.ipynb         # Operator validation notebook
 │
 ├── manuscript/
-│   └── v36/
-│       ├── paper2_nrr-phi_v36.tex
-│       ├── figure1.png
-│       ├── figure2.png
-│       ├── figure3.png
-│       ├── figure4.png
-│       ├── figure5.png
-│       └── checksums_sha256.txt
+│   ├── current/
+│   │   ├── paper2_nrr-phi_v25.tex
+│   │   ├── figure1.png
+│   │   ├── figure2.png
+│   │   ├── figure3.png
+│   │   ├── figure4.png
+│   │   ├── figure5.png
+│   │   └── checksums_sha256.txt
+│   └── archive/
+│       └── local-v36/
 │
+├── scripts/
+│   └── verify_versions.sh
 ├── LICENSE                       # CC BY 4.0
 ├── README.md
 ├── reproducibility.md
+├── VERSION_MAP.md
 └── requirements.txt              # Python dependencies
 ```
 
 ## Manuscript Artifacts
 
-The repository includes the manuscript package used for the current public
-Phi track snapshot:
+The repository includes a fixed current snapshot and archived later local drafts.
+Mapping is maintained in [`VERSION_MAP.md`](./VERSION_MAP.md).
 
-- `manuscript/v36/paper2_nrr-phi_v36.tex`
-- `manuscript/v36/figure1.png` ... `manuscript/v36/figure5.png`
-- `manuscript/v36/checksums_sha256.txt`
+- Current (public): `manuscript/current/paper2_nrr-phi_v25.tex`
+- Current figures: `manuscript/current/figure1.png` ... `manuscript/current/figure5.png`
+- Archived local draft: `manuscript/archive/local-v36/paper2_nrr-phi_v36.tex`
+
+## Version Verification
+
+Run the consistency check before release updates:
+
+```bash
+./scripts/verify_versions.sh
+```
 
 ## Quick Start
 
