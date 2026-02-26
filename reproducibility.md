@@ -1,10 +1,5 @@
 # Reproducibility
 
-## Scope
-
-This repository snapshot provides code/data reproducibility assets.
-Manuscript text artifacts (`.tex`, `.pdf`) are intentionally excluded.
-
 ## Environment
 - Python: 3.13.7 (`python3`)
 - Main libraries: NumPy >= 1.20
@@ -30,6 +25,9 @@ python3 experiments/run_operator_validation.py \
 |---|---|---|
 | Paper Table 2 (rule-based extraction summary) | `python3 experiments/rule_based_experiment.py > results/rule_based_output.txt` | `results/rule_based_output.txt` |
 | Appendix D Table/Figures (operator validation) | `python3 experiments/run_operator_validation.py --data data/operator_validation_states.json --output results/operator_validation_results.json` | `results/operator_validation_results.json` |
+| Public manuscript source (current snapshot) | N/A (tracked artifact) | `manuscript/current/paper2_nrr-phi_v25.tex` |
+| Public manuscript figures (current snapshot) | N/A (tracked artifact) | `manuscript/current/figure1.png` ... `manuscript/current/figure5.png` |
+| Version map | N/A (tracked artifact) | `VERSION_MAP.md` |
 
 ## Known limitations
 - LLM prompt/response files are archival artifacts; free-tier model build IDs are not fully fixed.
