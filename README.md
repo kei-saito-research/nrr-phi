@@ -39,10 +39,30 @@ nrr-phi/
 ├── notebooks/                    # Experiment notebooks
 │   └── operator_validation.ipynb         # Operator validation notebook
 │
+├── manuscript/
+│   └── v36/
+│       ├── paper2_nrr-phi_v36.tex
+│       ├── figure1.png
+│       ├── figure2.png
+│       ├── figure3.png
+│       ├── figure4.png
+│       ├── figure5.png
+│       └── checksums_sha256.txt
+│
 ├── LICENSE                       # CC BY 4.0
 ├── README.md
+├── reproducibility.md
 └── requirements.txt              # Python dependencies
 ```
+
+## Manuscript Artifacts
+
+The repository includes the manuscript package used for the current public
+Phi track snapshot:
+
+- `manuscript/v36/paper2_nrr-phi_v36.tex`
+- `manuscript/v36/figure1.png` ... `manuscript/v36/figure5.png`
+- `manuscript/v36/checksums_sha256.txt`
 
 ## Quick Start
 
