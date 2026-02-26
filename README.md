@@ -12,6 +12,10 @@ NRR is not an anti-LLM framework.
 NRR does not replace standard LLM use.
 NRR optimizes when to commit and when to defer, under explicit conditions.
 
+## DOI
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18793563.svg)](https://doi.org/10.5281/zenodo.18793563)
+
 ## Repository Structure
 
 ```
