@@ -2,179 +2,66 @@
 
 Reference implementation and reproducibility package for:
 
-> Saito, K. (2026). *NRR-Phi: Text-to-State Mapping for Ambiguity Preservation in LLM Inference.* arXiv:2601.19933
+Saito, K. (2026). NRR-Phi: Text-to-State Mapping for Ambiguity Preservation in LLM Inference.
+arXiv:2601.19933
 
 Part of the Non-Resolution Reasoning (NRR) research program.
-Program Map (series hub): [NRR Program Map](https://github.com/kei-saito-research/nrr-core/blob/main/PROGRAM_MAP.md)
-Version mapping source of truth: [`VERSION_MAP.md`](./VERSION_MAP.md)
+Program Map (series hub): https://github.com/kei-saito-research/nrr-core/blob/main/PROGRAM_MAP.md
 
-NRR-Core: [arXiv:2512.13478](https://arxiv.org/abs/2512.13478)
+NRR is not an anti-LLM framework.
+NRR does not replace standard LLM use.
+NRR optimizes when to commit and when to defer, under explicit conditions.
 
-## Repository Structure
+## Publication handling
+
+This repository is maintained as a code/data reproducibility package.
+Manuscript text artifacts (`.tex`, `.pdf`) are not included in this snapshot.
+
+## Repository structure
 
 ```
 nrr-phi/
-├── src/                          # Core library
-│   ├── __init__.py
-│   ├── state.py                  # NRRState, Interpretation classes
-│   ├── phi_mapping.py            # φ mapping: text → NRR state
-│   └── conflict_detection.py     # Linguistic marker detection (EN/JP)
-│
-├── data/                         # Input data
-│   ├── rule_based_data.json              # 40 sentences (adv 20 + hdg 20)
-│   └── operator_validation_states.json   # 580 test cases (Appendix D)
-│
-├── results/                      # Experiment outputs
-│   ├── rule_based_output.json            # Rule-based extraction results
-│   └── operator_validation_results.json  # Operator validation results
-│
-├── experiments/                  # Reproducibility scripts
-│   ├── rule_based_experiment.py          # Main text: Table 2
-│   └── run_operator_validation.py        # Appendix D: Table 7, Figures 4-5
-│
-├── prompts/                      # LLM experiment prompts + responses
-│   ├── GPTprompts_for_kei.txt            # ChatGPT prompts + outputs
-│   ├── Geminiprompts_for_kei_2.txt       # Gemini prompts + outputs
-│   └── claudeprompts_for_kei_2_2.txt     # Claude prompts + outputs
-│
-├── notebooks/                    # Experiment notebooks
-│   └── operator_validation.ipynb         # Operator validation notebook
-│
-├── manuscript/
-│   ├── current/
-│   │   ├── paper2_nrr-phi_v25.tex
-│   │   ├── figure1.png
-│   │   ├── figure2.png
-│   │   ├── figure3.png
-│   │   ├── figure4.png
-│   │   ├── figure5.png
-│   │   └── checksums_sha256.txt
-│   └── archive/
-│       └── local-v36/
-│
-├── scripts/
-│   └── verify_versions.sh
-├── LICENSE                       # CC BY 4.0
-├── README.md
-├── reproducibility.md
-├── VERSION_MAP.md
-└── requirements.txt              # Python dependencies
+|-- src/
+|   |-- state.py
+|   |-- phi_mapping.py
+|   `-- conflict_detection.py
+|-- data/
+|   |-- rule_based_data.json
+|   `-- operator_validation_states.json
+|-- experiments/
+|   |-- rule_based_experiment.py
+|   `-- run_operator_validation.py
+|-- results/
+|   |-- rule_based_output.json
+|   `-- operator_validation_results.json
+|-- prompts/
+|-- notebooks/
+|-- reproducibility.md
+|-- requirements.txt
+|-- README.md
+`-- LICENSE
 ```
 
-## Manuscript Artifacts
-
-The repository includes a fixed current snapshot and archived later local drafts.
-Mapping is maintained in [`VERSION_MAP.md`](./VERSION_MAP.md).
-
-- Current (public): `manuscript/current/paper2_nrr-phi_v25.tex`
-- Current figures: `manuscript/current/figure1.png` ... `manuscript/current/figure5.png`
-- Archived local draft: `manuscript/archive/local-v36/paper2_nrr-phi_v36.tex`
-
-## Version Verification
-
-Run the consistency check before release updates:
+## Quick start
 
 ```bash
-./scripts/verify_versions.sh
-```
-
-## Quick Start
-
-### Rule-based extraction (Table 2)
-
-```bash
-cd experiments
-python rule_based_experiment.py
-```
-
-### Operator validation (Appendix D, Table 7)
-
-```bash
-cd experiments
-python run_operator_validation.py --data ../data/operator_validation_states.json
-```
-
-### Using the φ mapping library
-
-```python
-from src.phi_mapping import phi
-
-state = phi("I want to quit, but I don't want to quit.")
-print(state)           # NRRState(|S|=2, H=1.000, lang=EN, cat=adversative)
-print(state.entropy)   # 1.0
-
-state_jp = phi("辞めたいけど、辞めたくない。", lang="JP")
-print(state_jp)        # NRRState(|S|=2, H=1.000, lang=JP, cat=adversative)
-```
-
-## Experiment Summary
-
-| Experiment | Data | Script | Results |
-|---|---|---|---|
-| Rule-based (Table 2) | data/rule_based_data.json | experiments/rule_based_experiment.py | results/rule_based_output.json |
-| LLM-based (Table 3) | prompts/*.txt | Manual (free-tier web UI) | Embedded in prompt files |
-| Operator validation (Table 7) | data/operator_validation_states.json | experiments/run_operator_validation.py | results/operator_validation_results.json |
-
-## Key Results
-
-- **68 sentences** across 5 ambiguity categories (EN + JP)
-- Mean state entropy H = **1.087 bits** (vs H = 0 for collapse-based models)
-- **0% collapse** for all principle-satisfying operators (580 test cases)
-- **2,740 total measurements** in operator validation
-
-## Requirements
-
-- Python 3.8+
-- NumPy
-
-## Related Repositories
-
-- [NRR-Core](https://github.com/kei-saito-research/nrr-core) - Foundational framework *(arXiv:2512.13478)*
-- [NRR-IME](https://github.com/kei-saito-research/nrr-ime) - Structure-aware optimization
-- [NRR-Transfer](https://github.com/kei-saito-research/nrr-transfer) - Cross-domain transfer validation
-
-## Citation
-
-```bibtex
-@article{saito2026nrrphi,
-  title={NRR-Phi: Text-to-State Mapping for Ambiguity Preservation in LLM Inference},
-  author={Saito, Kei},
-  journal={arXiv preprint arXiv:2601.19933},
-  year={2026}
-}
+pip install -r requirements.txt
+python3 experiments/rule_based_experiment.py > results/rule_based_output.txt
+python3 experiments/run_operator_validation.py \
+  --data data/operator_validation_states.json \
+  --output results/operator_validation_results.json
 ```
 
 ## Reproducibility
 
-See [`reproducibility.md`](./reproducibility.md) for environment, fixed settings, runnable commands, and artifact mapping.
+See `reproducibility.md` for environment, fixed settings, commands, and artifact mapping.
 
-## Commercial Use
+## Related repositories
 
-If you plan to use this in a commercial or production setting,
-a short message would be appreciated.
+- https://github.com/kei-saito-research/nrr-core
+- https://github.com/kei-saito-research/nrr-ime
+- https://github.com/kei-saito-research/nrr-transfer
 
 ## License
 
-CC BY 4.0 License. See [LICENSE](LICENSE).
-
----
-
-## Reproduction & Issue Reports
-
-If you reproduce results, find discrepancies, or hit bugs, please open an issue:
-- https://github.com/kei-saito-research/nrr-phi/issues
-
-Please include:
-- environment (OS, Python version)
-- command you ran
-- commit hash (if applicable)
-- observed output/error logs
-
----
-
-## Contact
-
-Kei Saito  
-Independent Researcher, Japan  
-ORCID: [0009-0006-4715-9176](https://orcid.org/0009-0006-4715-9176)  
-Email: kei.saito.research@gmail.com
+CC BY 4.0. See `LICENSE`.
