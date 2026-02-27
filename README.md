@@ -1,8 +1,15 @@
 # NRR-Phi: Text-to-State Mapping for Ambiguity Preservation in LLM Inference
 
-Reference implementation and reproducibility package for:
+NRR-Phi defines text-to-state mapping for **ambiguity-preserving inference** in LLM systems. The focus is preventing **premature commitment in LLM decoding** when inputs carry competing interpretations, then deciding **defer vs commit** with explicit conditions. Instead of forcing a single parse too early, the pipeline keeps multiple candidates in state form so later context can resolve them without unnecessary backtracking. This repository contains reproducibility code, operator-validation assets, and public-track manuscript mapping for the NRR series. It targets measurable handling of lexical, structural, and epistemic ambiguity and the reduction of **semantic collapse** in practical inference workflows. The intent is implementation clarity: explicit extraction stages, auditable artifacts, and clear limits on what the mapping does not claim to solve.
 
-> Saito, K. (2026). *NRR-Phi: Text-to-State Mapping for Ambiguity Preservation in LLM Inference.* arXiv:2601.19933
+**Quick links**
+- [arXiv: 2601.19933](https://arxiv.org/abs/2601.19933)
+- [Positioning (NRR vs related approaches)](./docs/positioning.md)
+- [Search Keywords and Weekly Rank Log](./docs/keywords.md)
+
+**EN/JA query terms**
+- `early commitment` = `早期確定`
+- `ambiguity-preserving inference` = `曖昧性保持推論`
 
 Part of the Non-Resolution Reasoning (NRR) research program.
 Program Map (series hub): [NRR Program Map](https://github.com/kei-saito-research/nrr-core/blob/main/PROGRAM_MAP.md)
