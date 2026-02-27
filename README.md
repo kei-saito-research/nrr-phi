@@ -103,7 +103,7 @@ Typical flow:
 3. if needed, I provide an English-ready version for external sharing.
 
 Scope: research interpretation and evaluation planning.  
-Out of scope: production integration, implementation outsourcing, ongoing operations, and delivery guarantees.  
+Out of scope: production integration, implementation outsourcing, ongoing operations, and SLA/deadline commitments.  
 Contact: kei.saito.research@gmail.com
 
 ## License
