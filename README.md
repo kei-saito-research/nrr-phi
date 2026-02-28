@@ -12,7 +12,12 @@ NRR-Phi defines text-to-state mapping for **ambiguity-preserving inference** in 
 - `ambiguity-preserving inference` = `曖昧性保持推論`
 
 Part of the Non-Resolution Reasoning (NRR) research program.
-Program Map (series hub): [NRR Program Map](https://github.com/kei-saito-research/nrr-core/blob/main/PROGRAM_MAP.md)
+
+## NRR Series Hub (Start here)
+
+For the cross-paper map and current series links, start here:
+- [NRR Program Map](https://github.com/kei-saito-research/nrr-core/blob/main/PROGRAM_MAP.md)
+
 Version mapping source of truth: [`VERSION_MAP.md`](./VERSION_MAP.md)
 
 NRR is not an anti-LLM framework.
