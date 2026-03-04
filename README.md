@@ -51,11 +51,12 @@ nrr-phi/
 ├── notebooks/
 ├── manuscript/
 │   ├── current/
-│   │   ├── paper2_nrr-phi_v37.tex
+│   │   ├── paper2_nrr-phi_v38.tex
 │   │   ├── figure1.png ... figure5.png
 │   │   └── checksums_sha256.txt
 │   └── archive/
 │       ├── public-v25/
+│       ├── local-v37/
 │       └── local-v36/
 ├── scripts/
 │   └── verify_versions.sh
@@ -71,9 +72,9 @@ nrr-phi/
 Published baseline and local archive mapping is maintained in [`VERSION_MAP.md`](./VERSION_MAP.md).
 
 - Public arXiv line: `2601.19933v3` (baseline public line)
-- Current replacement snapshot in repo: `manuscript/current/paper2_nrr-phi_v37.tex`
+- Current replacement snapshot in repo: `manuscript/current/paper2_nrr-phi_v38.tex`
 - Archived public baseline snapshot: `manuscript/archive/public-v25/paper2_nrr-phi_v25.tex`
-- Archived local draft snapshot: `manuscript/archive/local-v36/paper2_nrr-phi_v36.tex`
+- Archived local draft snapshot: `manuscript/archive/local-v37/paper2_nrr-phi_v37.tex`
 
 ## Version Verification
 
