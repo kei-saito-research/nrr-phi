@@ -86,10 +86,10 @@ Published baseline and local archive mapping is maintained in [`VERSION_MAP.md`]
 
 ```bash
 pip install -r requirements.txt
-python3 experiments/rule_based_experiment.py > results/rule_based_output.txt
+python3 experiments/rule_based_experiment.py > results/rule_based_output.json
 python3 experiments/run_operator_validation.py \
   --data data/operator_validation_states.json \
-  --output results/operator_validation_results.json
+  --output results/operator_validation_rerun_summary.json
 ```
 
 ## Reproducibility
