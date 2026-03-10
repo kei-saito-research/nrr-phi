@@ -71,8 +71,8 @@ nrr-phi/
 
 Published baseline and local archive mapping is maintained in [`VERSION_MAP.md`](./VERSION_MAP.md).
 
-- Public arXiv line: `2601.19933v3` (baseline public line)
-- Current replacement snapshot in repo: `manuscript/current/paper2_nrr-phi_v38.tex`
+- Current public arXiv line: `2601.19933v4`
+- Current public source snapshot in repo: `manuscript/current/paper2_nrr-phi_v38.tex`
 - Archived public baseline snapshot: `manuscript/archive/public-v25/paper2_nrr-phi_v25.tex`
 - Archived local draft snapshot: `manuscript/archive/local-v37/paper2_nrr-phi_v37.tex`
 
@@ -81,6 +81,11 @@ Published baseline and local archive mapping is maintained in [`VERSION_MAP.md`]
 ```bash
 ./scripts/verify_versions.sh
 ```
+
+Stable review-package entrypoints:
+- `bash scripts/build_current_manuscript.sh`
+- `bash scripts/verify_current_package.sh`
+- `bash scripts/run_primary_checks.sh`
 
 ## Quick Start
 

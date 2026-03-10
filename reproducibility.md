@@ -11,23 +11,34 @@
 - temperature: N/A (offline scripts; no live LLM sampling)
 - trials: 1 pass per command (deterministic input set)
 
+## Stable review-package commands
+- Build current manuscript to temp output:
+  - `bash scripts/build_current_manuscript.sh`
+  - output: `/tmp/nrr-phi_current_build/paper2_nrr-phi_v38.pdf`
+- Verify current package checksums:
+  - `bash scripts/verify_current_package.sh`
+- Reproduce the primary checks to temp outputs:
+  - `bash scripts/run_primary_checks.sh`
+  - outputs:
+    - `/tmp/nrr_phi_rule_based_output.json`
+    - `/tmp/nrr_phi_operator_validation.json`
+
 ## Run commands
 ```bash
 pip install -r requirements.txt
-python3 experiments/rule_based_experiment.py > results/rule_based_output.json
-python3 experiments/run_operator_validation.py \
-  --data data/operator_validation_states.json \
-  --output results/operator_validation_rerun_summary.json
+bash scripts/run_primary_checks.sh
 ```
 
 ## Artifact map
 | Table/Figure | Command | Output file |
 |---|---|---|
-| Paper Table 2 (rule-based extraction summary) | `python3 experiments/rule_based_experiment.py > results/rule_based_output.json` | `results/rule_based_output.json` |
-| Appendix D rerun summary (local output) | `python3 experiments/run_operator_validation.py --data data/operator_validation_states.json --output results/operator_validation_rerun_summary.json` | `results/operator_validation_rerun_summary.json` |
+| Paper Table 2 (rule-based extraction summary) | `bash scripts/run_primary_checks.sh` | `/tmp/nrr_phi_rule_based_output.json` |
+| Appendix D rerun summary (local output) | `bash scripts/run_primary_checks.sh` | `/tmp/nrr_phi_operator_validation.json` |
 | Appendix D bundled artifact (tracked snapshot) | N/A (tracked artifact) | `results/operator_validation_results.json` |
 | Public manuscript source (current snapshot) | N/A (tracked artifact) | `manuscript/current/paper2_nrr-phi_v38.tex` |
 | Public manuscript figures (current snapshot) | N/A (tracked artifact) | `manuscript/current/figure1.png` ... `manuscript/current/figure5.png` |
+| Current package checksum verification | `bash scripts/verify_current_package.sh` | stdout verification for `manuscript/current/checksums_sha256.txt` |
+| Current manuscript build | `bash scripts/build_current_manuscript.sh` | `/tmp/nrr-phi_current_build/paper2_nrr-phi_v38.pdf` |
 | Version map | N/A (tracked artifact) | `VERSION_MAP.md` |
 
 ## Known limitations
