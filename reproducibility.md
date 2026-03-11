@@ -1,21 +1,16 @@
-# Reproducibility
+# Reproducibility (NRR-Phi)
 
-## Environment
-- Python: 3.13.7 (`python3`)
-- Main libraries: NumPy >= 1.20
-- OS: Darwin 25.2.0 arm64
+## Scope
 
-## Fixed settings
-- model: Rule-based extractor for Table 2; operator-validation implementation for Appendix-D checks
-- seed: N/A (deterministic scripts)
-- temperature: N/A (offline scripts; no live LLM sampling)
-- trials: 1 pass per command (deterministic input set)
+This repository snapshot bundles the current manuscript source package together with
+the deterministic offline checks used for the public Phi line.
 
 ## Stable review-package commands
-- Build current manuscript to temp output:
+
+- Build the current manuscript to temp output:
   - `bash scripts/build_current_manuscript.sh`
   - output: `/tmp/nrr-phi_current_build/paper2_nrr-phi_v38.pdf`
-- Verify current package checksums:
+- Verify the current review-package checksum manifest:
   - `bash scripts/verify_current_package.sh`
 - Reproduce the primary checks to temp outputs:
   - `bash scripts/run_primary_checks.sh`
@@ -23,25 +18,49 @@
     - `/tmp/nrr_phi_rule_based_output.json`
     - `/tmp/nrr_phi_operator_validation.json`
 
-## Run commands
-```bash
-pip install -r requirements.txt
-bash scripts/run_primary_checks.sh
-```
+## Current review package
+
+- Main TeX: `manuscript/current/paper2_nrr-phi_v38.tex`
+- Current manuscript figures: `manuscript/current/figure1.png` to `figure5.png`
+- Checksum manifest: `manuscript/current/checksums_sha256.txt`
+
+## Checksum policy
+
+- `manuscript/current/checksums_sha256.txt` covers the tracked files that define the
+  current review package for the latest manuscript line in `manuscript/current/`.
+- Coverage includes the current main `.tex` file and each figure asset consumed by
+  that current manuscript from `manuscript/current/`.
+- Coverage excludes `checksums_sha256.txt` itself, older manuscript versions kept
+  outside the current package, and repo-specific artifacts outside
+  `manuscript/current/` unless a separate manifest is provided.
+
+## Environment
+
+- Python: 3.13.7 (`python3`)
+- Main libraries: NumPy >= 1.20
+- OS: Darwin 25.2.0 arm64
+
+## Fixed protocol settings
+
+- Primary checks: rule-based extractor for Table 2 and operator-validation rerun for Appendix D
+- Seed: N/A (deterministic scripts)
+- Temperature: N/A (offline scripts; no live LLM sampling)
+- Trials: 1 pass per command (deterministic input set)
 
 ## Artifact map
-| Table/Figure | Command | Output file |
+
+| Artifact | Command | Output |
 |---|---|---|
-| Paper Table 2 (rule-based extraction summary) | `bash scripts/run_primary_checks.sh` | `/tmp/nrr_phi_rule_based_output.json` |
-| Appendix D rerun summary (local output) | `bash scripts/run_primary_checks.sh` | `/tmp/nrr_phi_operator_validation.json` |
-| Appendix D bundled artifact (tracked snapshot) | N/A (tracked artifact) | `results/operator_validation_results.json` |
-| Public manuscript source (current snapshot) | N/A (tracked artifact) | `manuscript/current/paper2_nrr-phi_v38.tex` |
-| Public manuscript figures (current snapshot) | N/A (tracked artifact) | `manuscript/current/figure1.png` ... `manuscript/current/figure5.png` |
-| Current package checksum verification | `bash scripts/verify_current_package.sh` | stdout verification for `manuscript/current/checksums_sha256.txt` |
+| Paper Table 2 rule-based extraction summary | `bash scripts/run_primary_checks.sh` | `/tmp/nrr_phi_rule_based_output.json` |
+| Appendix D rerun summary | `bash scripts/run_primary_checks.sh` | `/tmp/nrr_phi_operator_validation.json` |
+| Appendix D bundled artifact | N/A (tracked artifact) | `results/operator_validation_results.json` |
 | Current manuscript build | `bash scripts/build_current_manuscript.sh` | `/tmp/nrr-phi_current_build/paper2_nrr-phi_v38.pdf` |
+| Current package checksum verification | `bash scripts/verify_current_package.sh` | stdout verification for `manuscript/current/checksums_sha256.txt` |
+| Current manuscript source snapshot | N/A (tracked artifact) | `manuscript/current/paper2_nrr-phi_v38.tex` |
 | Version map | N/A (tracked artifact) | `VERSION_MAP.md` |
 
 ## Known limitations
+
 - `results/operator_validation_results.json` is the bundled tracked artifact; reruns should write to a separate path to avoid overwriting the snapshot.
 - LLM prompt/response files are archival artifacts; free-tier model build IDs are not fully fixed.
 - Rule-based coverage is limited to implemented marker patterns (EN/JP).
