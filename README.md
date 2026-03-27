@@ -51,7 +51,7 @@ nrr-phi/
 ├── notebooks/
 ├── manuscript/
 │   ├── current/
-│   │   ├── paper2_nrr-phi_v38.tex
+│   │   ├── paper2_nrr-phi_v39.tex
 │   │   ├── figure1.png ... figure5.png
 │   │   └── checksums_sha256.txt
 │   └── archive/
@@ -73,6 +73,7 @@ Published baseline and local archive mapping is maintained in [`VERSION_MAP.md`]
 
 - Current public arXiv line: `2601.19933v4`
 - Current public source snapshot in repo: `manuscript/current/paper2_nrr-phi_v38.tex`
+- Current local replacement candidate: `manuscript/current/paper2_nrr-phi_v39.tex`
 - Archived public baseline snapshot: `manuscript/archive/public-v25/paper2_nrr-phi_v25.tex`
 - Archived local draft snapshot: `manuscript/archive/local-v37/paper2_nrr-phi_v37.tex`
 

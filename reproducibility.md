@@ -3,13 +3,16 @@
 ## Scope
 
 This repository snapshot bundles the current manuscript source package together with
-the deterministic offline checks used for the public Phi line.
+the deterministic offline checks used for the current Phi line.
+As of 2026-03-27 JST, the public arXiv line remains `2601.19933v4`
+(repo snapshot `manuscript/current/paper2_nrr-phi_v38.tex`), while the
+current local replacement candidate is `manuscript/current/paper2_nrr-phi_v39.tex`.
 
 ## Stable review-package commands
 
 - Build the current manuscript to temp output:
   - `bash scripts/build_current_manuscript.sh`
-  - output: `/tmp/nrr-phi_current_build/paper2_nrr-phi_v38.pdf`
+  - output: `/tmp/nrr-phi_current_build/paper2_nrr-phi_v39.pdf`
 - Verify the current review-package checksum manifest:
   - `bash scripts/verify_current_package.sh`
 - Reproduce the primary checks to temp outputs:
@@ -20,9 +23,12 @@ the deterministic offline checks used for the public Phi line.
 
 ## Current review package
 
-- Main TeX: `manuscript/current/paper2_nrr-phi_v38.tex`
+- Main TeX: `manuscript/current/paper2_nrr-phi_v39.tex`
 - Current manuscript figures: `manuscript/current/figure1.png` to `figure5.png`
 - Checksum manifest: `manuscript/current/checksums_sha256.txt`
+- Public arXiv note: the current public arXiv source snapshot is
+  `manuscript/current/paper2_nrr-phi_v38.tex`; the `v39` package named here is
+  the prepared replacement candidate.
 
 ## Checksum policy
 
@@ -54,9 +60,9 @@ the deterministic offline checks used for the public Phi line.
 | Paper Table 2 rule-based extraction summary | `bash scripts/run_primary_checks.sh` | `/tmp/nrr_phi_rule_based_output.json` |
 | Appendix D rerun summary | `bash scripts/run_primary_checks.sh` | `/tmp/nrr_phi_operator_validation.json` |
 | Appendix D bundled artifact | N/A (tracked artifact) | `results/operator_validation_results.json` |
-| Current manuscript build | `bash scripts/build_current_manuscript.sh` | `/tmp/nrr-phi_current_build/paper2_nrr-phi_v38.pdf` |
+| Current manuscript build | `bash scripts/build_current_manuscript.sh` | `/tmp/nrr-phi_current_build/paper2_nrr-phi_v39.pdf` |
 | Current package checksum verification | `bash scripts/verify_current_package.sh` | stdout verification for `manuscript/current/checksums_sha256.txt` |
-| Current manuscript source snapshot | N/A (tracked artifact) | `manuscript/current/paper2_nrr-phi_v38.tex` |
+| Current manuscript source snapshot | N/A (tracked artifact) | `manuscript/current/paper2_nrr-phi_v39.tex` |
 | Version map | N/A (tracked artifact) | `VERSION_MAP.md` |
 
 ## Known limitations
