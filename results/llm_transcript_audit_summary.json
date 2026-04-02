@@ -1,0 +1,555 @@
+{
+  "manifest_path": "prompts/llm_audit_manifest.json",
+  "transcript_files": {
+    "chatgpt": "prompts/GPTprompts_for_kei.txt",
+    "gemini": "prompts/Geminiprompts_for_kei_2.txt",
+    "claude": "prompts/claudeprompts_for_kei_2_2.txt"
+  },
+  "model_category_summaries": {
+    "epistemic": {
+      "chatgpt": {
+        "n": 8,
+        "mean_state_size": 3.0,
+        "mean_entropy": 1.577
+      },
+      "gemini": {
+        "n": 8,
+        "mean_state_size": 3.0,
+        "mean_entropy": 1.558
+      },
+      "claude": {
+        "n": 8,
+        "mean_state_size": 3.75,
+        "mean_entropy": 1.885
+      }
+    },
+    "lexical": {
+      "chatgpt": {
+        "n": 10,
+        "mean_state_size": 2.0,
+        "mean_entropy": 0.99
+      },
+      "gemini": {
+        "n": 10,
+        "mean_state_size": 2.3,
+        "mean_entropy": 1.024
+      },
+      "claude": {
+        "n": 10,
+        "mean_state_size": 2.2,
+        "mean_entropy": 1.008
+      }
+    },
+    "structural": {
+      "chatgpt": {
+        "n": 10,
+        "mean_state_size": 2.2,
+        "mean_entropy": 1.056
+      },
+      "gemini": {
+        "n": 10,
+        "mean_state_size": 2.1,
+        "mean_entropy": 0.821
+      },
+      "claude": {
+        "n": 10,
+        "mean_state_size": 2.1,
+        "mean_entropy": 1.027
+      }
+    }
+  },
+  "sentence_level_llm_entropy": {
+    "epistemic": [
+      {
+        "id": "epi_en_01",
+        "text": "I think I made the right choice.",
+        "entropy_by_model": {
+          "chatgpt": 1.579,
+          "gemini": 1.557,
+          "claude": 1.579
+        },
+        "state_size_by_model": {
+          "chatgpt": 3,
+          "gemini": 3,
+          "claude": 3
+        },
+        "three_model_average_entropy": 1.572,
+        "three_model_average_state_size": 3.0
+      },
+      {
+        "id": "epi_en_02",
+        "text": "I believe this is what I need.",
+        "entropy_by_model": {
+          "chatgpt": 1.574,
+          "gemini": 1.539,
+          "claude": 1.566
+        },
+        "state_size_by_model": {
+          "chatgpt": 3,
+          "gemini": 3,
+          "claude": 3
+        },
+        "three_model_average_entropy": 1.56,
+        "three_model_average_state_size": 3.0
+      },
+      {
+        "id": "epi_en_03",
+        "text": "It seems like everything is falling apart.",
+        "entropy_by_model": {
+          "chatgpt": 1.574,
+          "gemini": 1.564,
+          "claude": 1.984
+        },
+        "state_size_by_model": {
+          "chatgpt": 3,
+          "gemini": 3,
+          "claude": 4
+        },
+        "three_model_average_entropy": 1.707,
+        "three_model_average_state_size": 3.333
+      },
+      {
+        "id": "epi_en_04",
+        "text": "I feel like I'm not good enough.",
+        "entropy_by_model": {
+          "chatgpt": 1.575,
+          "gemini": 1.545,
+          "claude": 1.989
+        },
+        "state_size_by_model": {
+          "chatgpt": 3,
+          "gemini": 3,
+          "claude": 4
+        },
+        "three_model_average_entropy": 1.703,
+        "three_model_average_state_size": 3.333
+      },
+      {
+        "id": "epi_en_05",
+        "text": "I suppose I should be grateful.",
+        "entropy_by_model": {
+          "chatgpt": 1.579,
+          "gemini": 1.575,
+          "claude": 1.991
+        },
+        "state_size_by_model": {
+          "chatgpt": 3,
+          "gemini": 3,
+          "claude": 4
+        },
+        "three_model_average_entropy": 1.715,
+        "three_model_average_state_size": 3.333
+      },
+      {
+        "id": "epi_en_06",
+        "text": "I think they're disappointed in me.",
+        "entropy_by_model": {
+          "chatgpt": 1.574,
+          "gemini": 1.572,
+          "claude": 1.995
+        },
+        "state_size_by_model": {
+          "chatgpt": 3,
+          "gemini": 3,
+          "claude": 4
+        },
+        "three_model_average_entropy": 1.714,
+        "three_model_average_state_size": 3.333
+      },
+      {
+        "id": "epi_en_07",
+        "text": "It seems like no one understands.",
+        "entropy_by_model": {
+          "chatgpt": 1.58,
+          "gemini": 1.545,
+          "claude": 1.979
+        },
+        "state_size_by_model": {
+          "chatgpt": 3,
+          "gemini": 3,
+          "claude": 4
+        },
+        "three_model_average_entropy": 1.701,
+        "three_model_average_state_size": 3.333
+      },
+      {
+        "id": "epi_en_08",
+        "text": "I believe I can change.",
+        "entropy_by_model": {
+          "chatgpt": 1.58,
+          "gemini": 1.564,
+          "claude": 1.995
+        },
+        "state_size_by_model": {
+          "chatgpt": 3,
+          "gemini": 3,
+          "claude": 4
+        },
+        "three_model_average_entropy": 1.713,
+        "three_model_average_state_size": 3.333
+      }
+    ],
+    "lexical": [
+      {
+        "id": "lex_en_01",
+        "text": "I saw her duck.",
+        "entropy_by_model": {
+          "chatgpt": 1.0,
+          "gemini": 1.0,
+          "claude": 1.0
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 1.0,
+        "three_model_average_state_size": 2.0
+      },
+      {
+        "id": "lex_en_02",
+        "text": "The bank was closed.",
+        "entropy_by_model": {
+          "chatgpt": 0.971,
+          "gemini": 0.881,
+          "claude": 0.881
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 0.911,
+        "three_model_average_state_size": 2.0
+      },
+      {
+        "id": "lex_en_03",
+        "text": "She can't bear children.",
+        "entropy_by_model": {
+          "chatgpt": 0.993,
+          "gemini": 1.369,
+          "claude": 0.971
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 3,
+          "claude": 2
+        },
+        "three_model_average_entropy": 1.111,
+        "three_model_average_state_size": 2.333
+      },
+      {
+        "id": "lex_en_04",
+        "text": "Time flies like an arrow.",
+        "entropy_by_model": {
+          "chatgpt": 0.971,
+          "gemini": 0.922,
+          "claude": 0.922
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 3,
+          "claude": 3
+        },
+        "three_model_average_entropy": 0.938,
+        "three_model_average_state_size": 2.667
+      },
+      {
+        "id": "lex_en_05",
+        "text": "I need to get some light.",
+        "entropy_by_model": {
+          "chatgpt": 1.0,
+          "gemini": 1.371,
+          "claude": 1.485
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 3,
+          "claude": 3
+        },
+        "three_model_average_entropy": 1.285,
+        "three_model_average_state_size": 2.667
+      },
+      {
+        "id": "lex_en_06",
+        "text": "The chicken is ready to eat.",
+        "entropy_by_model": {
+          "chatgpt": 0.971,
+          "gemini": 0.971,
+          "claude": 0.881
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 0.941,
+        "three_model_average_state_size": 2.0
+      },
+      {
+        "id": "lex_en_07",
+        "text": "Visiting relatives can be boring.",
+        "entropy_by_model": {
+          "chatgpt": 1.0,
+          "gemini": 1.0,
+          "claude": 0.971
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 0.99,
+        "three_model_average_state_size": 2.0
+      },
+      {
+        "id": "lex_en_08",
+        "text": "The old man the boats.",
+        "entropy_by_model": {
+          "chatgpt": 1.0,
+          "gemini": 0.722,
+          "claude": 1.0
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 0.907,
+        "three_model_average_state_size": 2.0
+      },
+      {
+        "id": "lex_en_09",
+        "text": "Flying planes can be dangerous.",
+        "entropy_by_model": {
+          "chatgpt": 0.993,
+          "gemini": 1.0,
+          "claude": 0.971
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 0.988,
+        "three_model_average_state_size": 2.0
+      },
+      {
+        "id": "lex_en_10",
+        "text": "I saw the man with the telescope.",
+        "entropy_by_model": {
+          "chatgpt": 1.0,
+          "gemini": 1.0,
+          "claude": 1.0
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 1.0,
+        "three_model_average_state_size": 2.0
+      }
+    ],
+    "structural": [
+      {
+        "id": "str_en_01",
+        "text": "I shot an elephant in my pajamas.",
+        "entropy_by_model": {
+          "chatgpt": 0.881,
+          "gemini": 0.811,
+          "claude": 0.881
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 0.858,
+        "three_model_average_state_size": 2.0
+      },
+      {
+        "id": "str_en_02",
+        "text": "The professor said the student failed yesterday.",
+        "entropy_by_model": {
+          "chatgpt": 0.993,
+          "gemini": 0.985,
+          "claude": 0.971
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 0.983,
+        "three_model_average_state_size": 2.0
+      },
+      {
+        "id": "str_en_03",
+        "text": "Every student didn't pass the exam.",
+        "entropy_by_model": {
+          "chatgpt": 1.0,
+          "gemini": 0.996,
+          "claude": 1.0
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 0.999,
+        "three_model_average_state_size": 2.0
+      },
+      {
+        "id": "str_en_04",
+        "text": "John saw the man on the hill with a telescope.",
+        "entropy_by_model": {
+          "chatgpt": 1.539,
+          "gemini": 1.549,
+          "claude": 1.559
+        },
+        "state_size_by_model": {
+          "chatgpt": 3,
+          "gemini": 3,
+          "claude": 3
+        },
+        "three_model_average_entropy": 1.549,
+        "three_model_average_state_size": 3.0
+      },
+      {
+        "id": "str_en_05",
+        "text": "The horse raced past the barn fell.",
+        "entropy_by_model": {
+          "chatgpt": 0.722,
+          "gemini": 0.286,
+          "claude": 0.971
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 0.66,
+        "three_model_average_state_size": 2.0
+      },
+      {
+        "id": "str_en_06",
+        "text": "I convinced her children are noisy.",
+        "entropy_by_model": {
+          "chatgpt": 0.971,
+          "gemini": 0.918,
+          "claude": 0.993
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 0.961,
+        "three_model_average_state_size": 2.0
+      },
+      {
+        "id": "str_en_07",
+        "text": "The man who whistles tunes pianos.",
+        "entropy_by_model": {
+          "chatgpt": 0.993,
+          "gemini": 0.469,
+          "claude": 0.993
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 0.818,
+        "three_model_average_state_size": 2.0
+      },
+      {
+        "id": "str_en_08",
+        "text": "We saw her duck.",
+        "entropy_by_model": {
+          "chatgpt": 0.993,
+          "gemini": 1.0,
+          "claude": 1.0
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 0.998,
+        "three_model_average_state_size": 2.0
+      },
+      {
+        "id": "str_en_09",
+        "text": "The complex houses married soldiers.",
+        "entropy_by_model": {
+          "chatgpt": 1.5,
+          "gemini": 0.469,
+          "claude": 0.971
+        },
+        "state_size_by_model": {
+          "chatgpt": 3,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 0.98,
+        "three_model_average_state_size": 2.333
+      },
+      {
+        "id": "str_en_10",
+        "text": "Fat people eat accumulates.",
+        "entropy_by_model": {
+          "chatgpt": 0.971,
+          "gemini": 0.722,
+          "claude": 0.934
+        },
+        "state_size_by_model": {
+          "chatgpt": 2,
+          "gemini": 2,
+          "claude": 2
+        },
+        "three_model_average_entropy": 0.876,
+        "three_model_average_state_size": 2.0
+      }
+    ]
+  },
+  "category_means": {
+    "epistemic": {
+      "n": 8,
+      "mean_state_size": 3.25,
+      "mean_entropy": 1.673
+    },
+    "lexical": {
+      "n": 10,
+      "mean_state_size": 2.167,
+      "mean_entropy": 1.007
+    },
+    "structural": {
+      "n": 10,
+      "mean_state_size": 2.133,
+      "mean_entropy": 0.968
+    }
+  },
+  "combined_summary": {
+    "rule_based_categories": {
+      "adversative": {
+        "n": 20,
+        "mean_state_size": 2.1,
+        "mean_entropy": 1.037,
+        "source_artifact": "results/rule_based_output.json"
+      },
+      "hedging": {
+        "n": 20,
+        "mean_state_size": 2.05,
+        "mean_entropy": 1.002,
+        "source_artifact": "results/rule_based_output.json"
+      }
+    },
+    "llm_only_mean_entropy": 1.183,
+    "llm_only_mean_state_size": 2.464,
+    "overall_mean_entropy": 1.087,
+    "overall_mean_state_size": 2.235,
+    "overall_n": 68
+  }
+}

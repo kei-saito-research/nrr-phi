@@ -1,0 +1,65 @@
+{
+  "description": "Sentence-set and aggregation contract for the bundled LLM transcript audit surface.",
+  "transcript_files": {
+    "chatgpt": "prompts/GPTprompts_for_kei.txt",
+    "gemini": "prompts/Geminiprompts_for_kei_2.txt",
+    "claude": "prompts/claudeprompts_for_kei_2_2.txt"
+  },
+  "llm_sentence_groups": {
+    "epistemic": [
+      "epi_en_01",
+      "epi_en_02",
+      "epi_en_03",
+      "epi_en_04",
+      "epi_en_05",
+      "epi_en_06",
+      "epi_en_07",
+      "epi_en_08"
+    ],
+    "lexical": [
+      "lex_en_01",
+      "lex_en_02",
+      "lex_en_03",
+      "lex_en_04",
+      "lex_en_05",
+      "lex_en_06",
+      "lex_en_07",
+      "lex_en_08",
+      "lex_en_09",
+      "lex_en_10"
+    ],
+    "structural": [
+      "str_en_01",
+      "str_en_02",
+      "str_en_03",
+      "str_en_04",
+      "str_en_05",
+      "str_en_06",
+      "str_en_07",
+      "str_en_08",
+      "str_en_09",
+      "str_en_10"
+    ]
+  },
+  "rule_based_category_means": {
+    "adversative": {
+      "n": 20,
+      "mean_state_size": 2.1,
+      "mean_entropy": 1.037,
+      "source_artifact": "results/rule_based_output.json"
+    },
+    "hedging": {
+      "n": 20,
+      "mean_state_size": 2.05,
+      "mean_entropy": 1.002,
+      "source_artifact": "results/rule_based_output.json"
+    }
+  },
+  "combined_formula": {
+    "overall_n": 68,
+    "llm_n": 28,
+    "rule_n": 40,
+    "llm_entropy_rule": "For each English sentence, compute H(S) from each model's confidence weights, then average the three model entropies sentence-wise.",
+    "overall_entropy_rule": "Weighted mean across all 68 sentences: adversative mean * 20 + hedging mean * 20 + sum(sentence-level three-model-average entropies for the 28 LLM sentences), divided by 68."
+  }
+}
