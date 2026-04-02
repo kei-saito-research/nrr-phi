@@ -6,8 +6,8 @@ This repository snapshot bundles the current manuscript source package together 
 the deterministic offline checks used for the current Phi line, including a
 bundled transcript-audit path for the main-text LLM extraction summary.
 As of 2026-03-27 JST, the public arXiv line is `2601.19933v5`
-(repo snapshot `manuscript/current/paper2_nrr-phi_v39.tex`), while the
-current local replacement candidate is `manuscript/current/paper2_nrr-phi_v42.tex`.
+(repo snapshot `manuscript/archive/public-v39/paper2_nrr-phi_v39.tex`), while the
+current local replacement candidate is `manuscript/current/paper2_nrr-phi_v43.tex`.
 `VERSION_MAP.md` remains a full-repo provenance map and may list historical rows
 that are not bundled into a narrow review drop.
 
@@ -15,7 +15,9 @@ that are not bundled into a narrow review drop.
 
 - Build the current manuscript to temp output:
   - `bash scripts/build_current_manuscript.sh`
-  - output: `/tmp/nrr-phi_current_build/paper2_nrr-phi_v42.pdf`
+  - output: `/tmp/nrr-phi_current_build/paper2_nrr-phi_v43.pdf`
+- Verify that `manuscript/current/` contains only the latest `.tex` / `.pdf` pair:
+  - `bash scripts/verify_active_review_surface.sh`
 - Verify the current review-package checksum manifest:
   - `bash scripts/verify_current_package.sh`
 - Reproduce the primary checks to temp outputs:
@@ -27,9 +29,11 @@ that are not bundled into a narrow review drop.
 
 ## Current review package
 
-- Main TeX: `manuscript/current/paper2_nrr-phi_v42.tex`
-- Current manuscript figures: `manuscript/current/figure1.png` to `figure5.png`
-- Checksum manifest: `manuscript/current/checksums_sha256.txt`
+- Main TeX: `manuscript/current/paper2_nrr-phi_v43.tex`
+- Main PDF: `manuscript/current/paper2_nrr-phi_v43.pdf`
+- Current manuscript figures: `manuscript/figures/figure1.png` to `figure5.png`
+- Active review-surface checksum manifest: `manuscript/checksums_active_review_surface_sha256.txt`
+- Current package checksum manifest: `manuscript/checksums_current_package_sha256.txt`
 - Bundled rule-based artifact: `results/rule_based_output.json`
 - Bundled operator-validation artifact: `results/operator_validation_results.json`
 - Bundled transcript-audit manifest: `prompts/llm_audit_manifest.json`
@@ -40,20 +44,21 @@ that are not bundled into a narrow review drop.
   - `prompts/Geminiprompts_for_kei_2.txt`
   - `prompts/claudeprompts_for_kei_2_2.txt`
 - Public arXiv note: the current public arXiv source snapshot is
-  `manuscript/current/paper2_nrr-phi_v39.tex`; the `v40` and `v41` packages
+  `manuscript/archive/public-v39/paper2_nrr-phi_v39.tex`; the `v40`, `v41`, and `v42` packages
   named here are prior derived lines, the `v38` package remains an older
-  historical row in the provenance map, and the `v42` package named here is the current prepared
+  historical row in the provenance map, and the `v43` package named here is the current prepared
   replacement candidate.
 
 ## Checksum policy
 
-- `manuscript/current/checksums_sha256.txt` covers the tracked files that define the
-  current review package for the latest manuscript line in `manuscript/current/`.
-- Coverage includes the current main `.tex` file and each figure asset consumed by
-  that current manuscript from `manuscript/current/`.
-- Coverage excludes `checksums_sha256.txt` itself, older manuscript versions kept
-  outside the current package, and repo-specific artifacts outside
-  `manuscript/current/` unless a separate manifest is provided.
+- `manuscript/checksums_active_review_surface_sha256.txt` covers the latest
+  `.tex` / `.pdf` pair in `manuscript/current/`.
+- `manuscript/checksums_current_package_sha256.txt` covers the current review
+  package entrypoints, the latest manuscript pair, the figure assets consumed by
+  that manuscript from `manuscript/figures/`, and the bundled transcript-audit
+  support files listed in this note.
+- Coverage excludes older manuscript versions kept under `manuscript/archive/`
+  and generated outputs outside the tracked current package.
 - For reviewer audit of the main-text LLM extraction table and the combined
   `H = 1.087` line, this repo now bundles:
   - the original prompt+response transcript files in `prompts/`
@@ -87,9 +92,11 @@ that are not bundled into a narrow review drop.
 | Bundled LLM transcript audit summary | N/A (tracked artifact) | `results/llm_transcript_audit_summary.json` |
 | Bundled LLM transcript audit manifest | N/A (tracked artifact) | `prompts/llm_audit_manifest.json` |
 | Bundled LLM prompt+response transcripts for the main-text extraction table | N/A (tracked artifacts) | `prompts/GPTprompts_for_kei.txt`, `prompts/Geminiprompts_for_kei_2.txt`, `prompts/claudeprompts_for_kei_2_2.txt` |
-| Current manuscript build | `bash scripts/build_current_manuscript.sh` | `/tmp/nrr-phi_current_build/paper2_nrr-phi_v42.pdf` |
-| Current package checksum verification | `bash scripts/verify_current_package.sh` | stdout verification for `manuscript/current/checksums_sha256.txt` |
-| Current manuscript source snapshot | N/A (tracked artifact) | `manuscript/current/paper2_nrr-phi_v42.tex` |
+| Current manuscript build | `bash scripts/build_current_manuscript.sh` | `/tmp/nrr-phi_current_build/paper2_nrr-phi_v43.pdf` |
+| Active review-surface verification | `bash scripts/verify_active_review_surface.sh` | stdout verification for `manuscript/checksums_active_review_surface_sha256.txt` |
+| Current package checksum verification | `bash scripts/verify_current_package.sh` | stdout verification for `manuscript/checksums_current_package_sha256.txt` |
+| Current manuscript source snapshot | N/A (tracked artifact) | `manuscript/current/paper2_nrr-phi_v43.tex` |
+| Current manuscript PDF snapshot | N/A (tracked artifact) | `manuscript/current/paper2_nrr-phi_v43.pdf` |
 | Full-repo provenance map | N/A (tracked artifact) | `VERSION_MAP.md` |
 
 ## Known limitations

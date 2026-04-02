@@ -11,7 +11,7 @@ NRR-Phi defines text-to-state mapping for **ambiguity-preserving inference** in 
 - `early commitment` = `早期確定`
 - `ambiguity-preserving inference` = `曖昧性保持推論`
 
-Part of the Non-Resolution Reasoning (NRR) research program. In the current spine, this repository is the text-to-state layer that feeds later interface, transfer, coupled-propagation, projection, and integrated `paper7` comparison work, with downstream carry-forward into Energy and Guarantee.
+Part of the Non-Resolution Reasoning (NRR) research program. In the current spine, this repository is the text-to-state layer that feeds later interface, transfer, coupled-propagation, projection, and `NRR-Patterns` comparison work, with downstream carry-forward into Energy and Guarantee.
 
 ## NRR Series Hub (Start here)
 
@@ -50,15 +50,20 @@ nrr-phi/
 ├── notebooks/
 ├── manuscript/
 │   ├── current/
-│   │   ├── paper2_nrr-phi_v42.tex
+│   │   ├── paper2_nrr-phi_v43.tex
+│   │   └── paper2_nrr-phi_v43.pdf
+│   ├── figures/
 │   │   ├── figure1.png ... figure5.png
-│   │   └── checksums_sha256.txt
+│   ├── checksums_active_review_surface_sha256.txt
+│   ├── checksums_current_package_sha256.txt
 │   └── archive/
 │       └── ...                   # Full-repo history; not required in narrow review surfaces
 ├── scripts/
 │   ├── audit_llm_transcripts.py
+│   ├── README.md
 │   ├── build_current_manuscript.sh
 │   ├── run_primary_checks.sh
+│   ├── verify_active_review_surface.sh
 │   └── verify_current_package.sh
 ├── VERSION_MAP.md
 ├── reproducibility.md
@@ -76,9 +81,9 @@ nrr-phi/
 Published baseline and local archive mapping is maintained in [`VERSION_MAP.md`](./VERSION_MAP.md).
 
 - Current public arXiv line: `2601.19933v5`
-- Current narrow review-surface candidate: `manuscript/current/paper2_nrr-phi_v42.tex`
+- Current narrow review-surface candidate: `manuscript/current/paper2_nrr-phi_v43.tex`
 - Full-repo provenance rows, including the public-current `v39` line, the prior
-  derived `v40`/`v41` lines, and older historical rows including the former
+  derived `v40`/`v41`/`v42` lines, and older historical rows including the former
   public `v38` line, remain recorded in `VERSION_MAP.md` and may be omitted
   from narrow review drops.
 
@@ -90,6 +95,7 @@ the assets explicitly listed in `reproducibility.md`.
 
 Stable review-package entrypoints:
 - `bash scripts/build_current_manuscript.sh`
+- `bash scripts/verify_active_review_surface.sh`
 - `bash scripts/verify_current_package.sh`
 - `bash scripts/run_primary_checks.sh`
 
@@ -118,7 +124,7 @@ for the main-text LLM extraction table and combined `H = 1.087` line.
 - [NRR-Transfer](https://github.com/kei-saito-research/nrr-transfer)
 - [NRR-Coupled](https://github.com/kei-saito-research/nrr-coupled)
 - [NRR-Projection](https://github.com/kei-saito-research/nrr-projection)
-- [NRR-Principles](https://github.com/kei-saito-research/nrr-principles)
+- [NRR-Patterns](https://github.com/kei-saito-research/nrr-patterns)
 
 ## Collaboration Style
 
