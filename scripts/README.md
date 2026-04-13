@@ -12,7 +12,7 @@ NRR-Phi repository surface.
 - `verify_active_review_surface.sh`
   - verifies that `manuscript/current/` contains only the current `.tex` / `.pdf` pair and checks `manuscript/checksums_active_review_surface_sha256.txt`
 - `verify_current_package.sh`
-  - verifies the active review surface first and then checks `manuscript/checksums_current_package_sha256.txt`
+  - verifies the current manuscript files first and then checks `manuscript/checksums_current_package_sha256.txt`
 
 `audit_llm_transcripts.py` remains a bundled audit helper, while the four
 entrypoints above define the stable current-package interface.

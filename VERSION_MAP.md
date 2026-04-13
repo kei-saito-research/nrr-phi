@@ -6,7 +6,7 @@ only the current replacement candidate plus the audit files needed for that line
 | track | release_status | bundled_in_current_review_surface | arxiv_id | arxiv_version | local_version | manuscript_dir | main_tex | checksum_file |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | phi | public-current | no | 2601.19933 | v5 | v39 | manuscript/archive/public-v39 | paper2_nrr-phi_v39.tex | checksums_sha256.txt |
-| phi | replacement-candidate | yes | 2601.19933 | pending | v43 | manuscript/current | paper2_nrr-phi_v43.tex | manuscript/checksums_active_review_surface_sha256.txt |
+| phi | replacement-candidate | yes | 2601.19933 | pending | v43 | manuscript/current | paper2_nrr-phi_v44.tex | manuscript/checksums_active_review_surface_sha256.txt |
 | phi | prior-derived | no | 2601.19933 | pending | v42 | manuscript/archive/local-v42 | paper2_nrr-phi_v42.tex | checksums_sha256.txt |
 | phi | prior-derived | no | 2601.19933 | pending | v41 | manuscript/archive/local-v41 | paper2_nrr-phi_v41.tex | checksums_sha256.txt |
 | phi | prior-derived | no | 2601.19933 | pending | v40 | manuscript/archive/local-v40 | paper2_nrr-phi_v40.tex | checksums_sha256.txt |

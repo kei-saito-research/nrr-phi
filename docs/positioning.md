@@ -1,24 +1,28 @@
-# NRR Positioning: Ambiguity-Preserving Inference vs Nearby Methods
+# NRR-Phi Positioning
 
-NRR targets **ambiguity-preserving inference** for practical LLM systems. The main risk addressed is **premature commitment in LLM decoding** and downstream rework from **semantic collapse**. NRR controls **defer vs commit** timing under explicit conditions rather than forcing universal abstention or universal commitment.
+This note gives a short public-facing view of where the NRR-Phi line sits among nearby approaches. The focus is ambiguity-preserving inference: keeping multiple plausible interpretations available when context is still incomplete, then allowing later context to support commitment when appropriate.
 
-## NRR vs Nearby Concepts (What It Solves / Does Not Solve)
+NRR-Phi is not a replacement for standard LLM use. In this line, the contribution is a text-to-state mapping that keeps competing interpretations explicit enough to be updated, inspected, and reused across later turns or later evidence.
 
-| Approach | What it solves | What it does not solve | Difference from NRR |
-| --- | --- | --- | --- |
-| Fuzzy reasoning | Represents graded truth or soft category boundaries. | Does not directly manage multiple discrete interpretations across multi-turn LLM inference. | NRR keeps competing interpretations as state candidates and delays commitment by policy. |
-| Calibrated abstention | Decides whether to answer or abstain when confidence is low. | Does not preserve internal contradictory interpretations for later reuse. | NRR preserves alternatives internally, then chooses defer/commit at output boundaries. |
-| WSD (word sense disambiguation) | Selects one word sense from local context. | Does not target global ambiguity persistence under context shifts. | NRR treats unresolved multiplicity as valid state, not only as an error to eliminate. |
+## How It Relates to Nearby Approaches
 
-## Boundary Conditions
+| Approach | Typical focus | How NRR-Phi differs |
+| --- | --- | --- |
+| Fuzzy reasoning | Represents graded truth or soft category boundaries. | NRR-Phi focuses on carrying multiple discrete interpretations forward as explicit state candidates. |
+| Calibrated abstention | Decides whether to answer or abstain under low confidence. | NRR-Phi focuses on preserving alternatives internally before final output-time commitment. |
+| Word sense disambiguation | Chooses one sense from local context. | NRR-Phi focuses on delaying collapse when later context may still change the appropriate interpretation. |
 
-- NRR is not anti-LLM and does not replace standard LLM use.
-- Do not claim: NRR is a universal replacement for standard LLM usage.
-- NRR is evaluated as conditional utility under specific tasks and protocols.
-- This page is for positioning; formal definitions remain in manuscript and reproducibility docs.
+## What This Repository Covers
+
+- Text-to-state mapping for ambiguity-preserving inference.
+- Handling of lexical, structural, and epistemic ambiguity under explicit conditions.
+- Manuscript, reproducibility, and audit materials for the Phi line.
+
+Formal definitions, experiments, and limitations remain in the manuscript and reproducibility materials.
 
 ## Navigation
 
 - [README](../README.md)
-- [Search Keywords and Weekly Rank Log](./keywords.md)
-- arXiv: https://arxiv.org/abs/2601.19933
+- [Reproducibility](../reproducibility.md)
+- [Search Keywords and Reader Guide](./keywords.md)
+- [arXiv: 2601.19933](https://arxiv.org/abs/2601.19933)
