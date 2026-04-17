@@ -48,8 +48,8 @@ nrr-phi/
 ├── notebooks/
 ├── manuscript/
 │   ├── current/
-│   │   ├── paper2_nrr-phi_v44.tex
-│   │   └── paper2_nrr-phi_v44.pdf
+│   │   ├── paper2_nrr-phi_v47.tex
+│   │   └── paper2_nrr-phi_v47.pdf
 │   ├── figures/
 │   │   ├── figure1.png ... figure5.png
 │   ├── checksums_active_review_surface_sha256.txt
@@ -79,7 +79,7 @@ nrr-phi/
 Published and local version mapping is maintained in [`VERSION_MAP.md`](./VERSION_MAP.md).
 
 - Current public arXiv line: `2601.19933v5`
-- Current manuscript snapshot: `manuscript/current/paper2_nrr-phi_v44.tex`
+- Current manuscript snapshot: `manuscript/current/paper2_nrr-phi_v47.tex`
 - Earlier package versions remain recorded in `VERSION_MAP.md`.
 
 ## Package Entry Points
