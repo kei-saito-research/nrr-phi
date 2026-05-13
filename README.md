@@ -26,9 +26,11 @@ NRR does not replace standard LLM use.
 NRR optimizes when to commit and when to defer, under explicit conditions.
 Series numbering policy: `paper3` is permanently skipped and never reused.
 
-## DOI
+## DOI / Archive
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18793563.svg)](https://doi.org/10.5281/zenodo.18793563)
+- Archive concept DOI: [10.5281/zenodo.18793562](https://doi.org/10.5281/zenodo.18793562)
+- Latest inspected archived snapshot: [10.5281/zenodo.18866847](https://doi.org/10.5281/zenodo.18866847)
+- Earlier exact snapshot retained for provenance: [10.5281/zenodo.18793563](https://doi.org/10.5281/zenodo.18793563)
 
 ## Package Structure
 
