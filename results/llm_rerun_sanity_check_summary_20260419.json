@@ -1,0 +1,27 @@
+{
+  "description": "Fixed 18-set current-API sanity-check rerun summary for the archived LLM-handled ambiguity surface in NRR-Phi.",
+  "execution_date": "2026-04-19",
+  "sample": {
+    "sentence_count": 6,
+    "model_family_count": 3,
+    "rerun_set_count": 18
+  },
+  "operative_summary": {
+    "consistent": 9,
+    "partially_consistent": 8,
+    "divergent": 1
+  },
+  "divergent_sets": [
+    {
+      "sentence_id": "str_en_02",
+      "model_family": "openai",
+      "note": "Archived output preserved the two-way yesterday-scope split; the rerun output did not."
+    }
+  ],
+  "carry_forward_notes": [
+    "epi_en_03 and epi_en_08 preserve the same broad ambiguity family but reshape subreadings across providers.",
+    "lex_en_02 / anthropic and str_en_08 / anthropic overgenerate beyond the archived compact read while preserving the core ambiguity family."
+  ],
+  "judgment": "keep_archived_mainline_with_bounded_stability_note",
+  "scope_note": "This rerun is a bounded stability check only. It is not a human semantic-adequacy adjudication and not a perfect identity reproduction claim."
+}

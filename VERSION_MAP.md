@@ -7,7 +7,9 @@ files needed for that line.
 | track | release_status | arxiv_id | arxiv_version | local_version | manuscript_dir | main_tex | checksum_file |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | phi | public-current | 2601.19933 | v5 | v39 | manuscript/archive/public-v39 | paper2_nrr-phi_v39.tex | checksums_sha256.txt |
-| phi | current-working | 2601.19933 | pending | v47 | manuscript/current | paper2_nrr-phi_v47.tex | ../checksums_current_dir_sha256.txt |
+| phi | current-working | 2601.19933 | pending | v48 | manuscript/current | paper2_nrr-phi_v48.tex | ../checksums_active_review_surface_sha256.txt |
+| phi | blind-submission | 2601.19933 | pending | v48_blind | manuscript/archive/local-v48_tmlr_blind_2026-04-18 | paper2_nrr-phi_v48_blind.tex | checksums_sha256.txt |
+| phi | prior-working | 2601.19933 | pending | v47 | manuscript/archive/local-v47_pre_tmlr_revision_2026-04-18 | paper2_nrr-phi_v47.tex | checksums_sha256.txt |
 | phi | prior-working | 2601.19933 | pending | v46 | manuscript/archive/local-v46_collapse_marking_refine_2026-04-17 | paper2_nrr-phi_v46.tex | checksums_sha256.txt |
 | phi | prior-working | 2601.19933 | pending | v45 | manuscript/archive/local-v45_collapse_marking_2026-04-17 | paper2_nrr-phi_v45.tex | checksums_sha256.txt |
 | phi | prior-working | 2601.19933 | pending | v44 | manuscript/archive/local-v44_ack_2026-04-13 | paper2_nrr-phi_v44.tex | checksums_sha256.txt |

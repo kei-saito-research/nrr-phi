@@ -41,7 +41,8 @@ nrr-phi/
 │   └── operator_validation_states.json
 ├── results/
 │   ├── rule_based_output.json
-│   └── operator_validation_results.json
+│   ├── operator_validation_results.json
+│   └── llm_rerun_sanity_check_summary_20260419.json
 ├── experiments/
 │   ├── rule_based_experiment.py
 │   └── run_operator_validation.py
@@ -50,8 +51,8 @@ nrr-phi/
 ├── notebooks/
 ├── manuscript/
 │   ├── current/
-│   │   ├── paper2_nrr-phi_v47.tex
-│   │   └── paper2_nrr-phi_v47.pdf
+│   │   ├── paper2_nrr-phi_v48.tex
+│   │   └── paper2_nrr-phi_v48.pdf
 │   ├── figures/
 │   │   ├── figure1.png ... figure5.png
 │   ├── checksums_active_review_surface_sha256.txt
@@ -71,6 +72,7 @@ nrr-phi/
 ├── README.md
 ├── LICENSE
 └── results/
+    ├── llm_rerun_sanity_check_summary_20260419.json
     ├── llm_transcript_audit_summary.json
     ├── operator_validation_results.json
     └── rule_based_output.json
@@ -81,7 +83,9 @@ nrr-phi/
 Published and local version mapping is maintained in [`VERSION_MAP.md`](./VERSION_MAP.md).
 
 - Current public arXiv line: `2601.19933v5`
-- Current manuscript snapshot: `manuscript/current/paper2_nrr-phi_v47.tex`
+- Current manuscript snapshot: `manuscript/current/paper2_nrr-phi_v48.tex`
+- Preserved pre-revision baseline: `manuscript/archive/local-v47_pre_tmlr_revision_2026-04-18/paper2_nrr-phi_v47.tex`
+- Blind TMLR submission variant: `manuscript/archive/local-v48_tmlr_blind_2026-04-18/paper2_nrr-phi_v48_blind.tex`
 - Earlier package versions remain recorded in `VERSION_MAP.md`.
 
 ## Package Entry Points
@@ -105,10 +109,15 @@ python3 experiments/run_operator_validation.py \
 ## Reproducibility
 
 See [`reproducibility.md`](./reproducibility.md) for environment, fixed settings, commands, and artifact mapping.
+Deterministic reruns in this package cover the rule-based mapping and the operator-validation appendix.
 The bundled `prompts/` files plus `prompts/llm_audit_manifest.json`,
 `scripts/audit_llm_transcripts.py`, and
 `results/llm_transcript_audit_summary.json` form the bundled audit path
 for the main-text LLM extraction table and combined `H = 1.087` line.
+For the archived LLM-handled cases, the package also bundles
+`results/llm_rerun_sanity_check_summary_20260419.json`, which records the fixed
+18-set current-API sanity-check rerun as a bounded stability note rather than as
+full live reproducibility.
 
 ## Related Repositories
 

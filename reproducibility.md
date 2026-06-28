@@ -4,10 +4,11 @@
 
 This repository snapshot bundles the current manuscript source package together with
 the deterministic offline checks used for the current Phi line, including a
-bundled transcript-audit path for the main-text LLM extraction summary.
+bundled transcript-audit path for the main-text LLM extraction summary and a
+bundled summary of the fixed 18-set current-API sanity-check rerun.
 As of 2026-03-27 JST, the public arXiv line is `2601.19933v5`
 (repo snapshot `manuscript/archive/public-v39/paper2_nrr-phi_v39.tex`), while the
-current manuscript snapshot is `manuscript/current/paper2_nrr-phi_v47.tex`.
+current manuscript snapshot is `manuscript/current/paper2_nrr-phi_v48.tex`.
 `VERSION_MAP.md` remains the full-repo version map and may list historical rows
 that are not bundled into the current package snapshot.
 
@@ -15,7 +16,7 @@ that are not bundled into the current package snapshot.
 
 - Build the current manuscript to temp output:
   - `bash scripts/build_current_manuscript.sh`
-  - output: `/tmp/nrr-phi_current_build/paper2_nrr-phi_v47.pdf`
+  - output: `/tmp/nrr-phi_current_build/paper2_nrr-phi_v48.pdf`
 - Verify that `manuscript/current/` contains only the latest `.tex` / `.pdf` pair:
   - `bash scripts/verify_active_review_surface.sh`
 - Verify the current package checksum manifest:
@@ -29,25 +30,30 @@ that are not bundled into the current package snapshot.
 
 ## Current package snapshot
 
-- Main TeX: `manuscript/current/paper2_nrr-phi_v47.tex`
-- Main PDF: `manuscript/current/paper2_nrr-phi_v47.pdf`
+- Main TeX: `manuscript/current/paper2_nrr-phi_v48.tex`
+- Main PDF: `manuscript/current/paper2_nrr-phi_v48.pdf`
 - Current manuscript figures: `manuscript/figures/figure1.png` to `figure5.png`
 - Current manuscript checksum manifest: `manuscript/checksums_active_review_surface_sha256.txt`
 - Current package checksum manifest: `manuscript/checksums_current_package_sha256.txt`
+- Preserved pre-revision baseline: `manuscript/archive/local-v47_pre_tmlr_revision_2026-04-18/paper2_nrr-phi_v47.tex`
+- Blind TMLR submission variant: `manuscript/archive/local-v48_tmlr_blind_2026-04-18/paper2_nrr-phi_v48_blind.tex`
 - Bundled rule-based artifact: `results/rule_based_output.json`
 - Bundled operator-validation artifact: `results/operator_validation_results.json`
 - Bundled transcript-audit manifest: `prompts/llm_audit_manifest.json`
 - Bundled transcript-audit script: `scripts/audit_llm_transcripts.py`
 - Bundled transcript-audit summary: `results/llm_transcript_audit_summary.json`
+- Bundled 18-set rerun sanity-check summary:
+  `results/llm_rerun_sanity_check_summary_20260419.json`
 - Bundled LLM prompt+response transcripts:
   - `prompts/GPTprompts_for_kei.txt`
   - `prompts/Geminiprompts_for_kei_2.txt`
   - `prompts/claudeprompts_for_kei_2_2.txt`
 - Public arXiv note: the current public arXiv source snapshot is
   `manuscript/archive/public-v39/paper2_nrr-phi_v39.tex`; the `v40` through
-  `v46` packages named here are earlier working lines, the `v38` package
-  remains an older historical row in the version map, and the `v47` package
-  named here is the current manuscript snapshot.
+  `v47` packages named here are earlier working lines, the `v38` package
+  remains an older historical row in the version map, the `v48` package
+  named here is the current manuscript snapshot, and the blind submission
+  derivative is tracked separately in the archive.
 
 ## Checksum policy
 
@@ -66,6 +72,10 @@ that are not bundled into the current package snapshot.
     `prompts/llm_audit_manifest.json`
   - a local audit script in `scripts/audit_llm_transcripts.py`
   - a generated audit summary in `results/llm_transcript_audit_summary.json`
+- For the bounded stability note on the archived LLM-handled surface, this repo
+  also bundles:
+  - a tracked 18-set rerun summary in
+    `results/llm_rerun_sanity_check_summary_20260419.json`
 
 ## Environment
 
@@ -76,6 +86,7 @@ that are not bundled into the current package snapshot.
 ## Fixed protocol settings
 
 - Primary checks: rule-based extractor for Table 2 and operator-validation rerun for Appendix D
+- Additional bundled summary artifact: fixed 18-set current-API sanity-check rerun
 - Seed: N/A (deterministic scripts)
 - Temperature: N/A (offline scripts; no live LLM sampling)
 - Trials: 1 pass per command (deterministic input set)
@@ -90,13 +101,14 @@ that are not bundled into the current package snapshot.
 | Appendix D bundled artifact | N/A (tracked artifact) | `results/operator_validation_results.json` |
 | LLM transcript audit rerun | `bash scripts/run_primary_checks.sh` | `/tmp/nrr_phi_llm_transcript_audit.json` |
 | Bundled LLM transcript audit summary | N/A (tracked artifact) | `results/llm_transcript_audit_summary.json` |
+| Bundled 18-set rerun sanity-check summary | N/A (tracked artifact) | `results/llm_rerun_sanity_check_summary_20260419.json` |
 | Bundled LLM transcript audit manifest | N/A (tracked artifact) | `prompts/llm_audit_manifest.json` |
 | Bundled LLM prompt+response transcripts for the main-text extraction table | N/A (tracked artifacts) | `prompts/GPTprompts_for_kei.txt`, `prompts/Geminiprompts_for_kei_2.txt`, `prompts/claudeprompts_for_kei_2_2.txt` |
-| Current manuscript build | `bash scripts/build_current_manuscript.sh` | `/tmp/nrr-phi_current_build/paper2_nrr-phi_v47.pdf` |
+| Current manuscript build | `bash scripts/build_current_manuscript.sh` | `/tmp/nrr-phi_current_build/paper2_nrr-phi_v48.pdf` |
 | Current manuscript verification | `bash scripts/verify_active_review_surface.sh` | stdout verification for `manuscript/checksums_active_review_surface_sha256.txt` |
 | Current package checksum verification | `bash scripts/verify_current_package.sh` | stdout verification for `manuscript/checksums_current_package_sha256.txt` |
-| Current manuscript source snapshot | N/A (tracked artifact) | `manuscript/current/paper2_nrr-phi_v47.tex` |
-| Current manuscript PDF snapshot | N/A (tracked artifact) | `manuscript/current/paper2_nrr-phi_v47.pdf` |
+| Current manuscript source snapshot | N/A (tracked artifact) | `manuscript/current/paper2_nrr-phi_v48.tex` |
+| Current manuscript PDF snapshot | N/A (tracked artifact) | `manuscript/current/paper2_nrr-phi_v48.pdf` |
 | Full-repo version map | N/A (tracked artifact) | `VERSION_MAP.md` |
 
 ## Known limitations
@@ -105,4 +117,6 @@ that are not bundled into the current package snapshot.
 - The transcript-audit script reconstructs the manuscript summaries from bundled
   transcripts and confidence weights, but it still audits fixed saved outputs
   from free-tier web interfaces rather than replaying live web runs.
+- The fixed 18-set rerun is bundled here as a tracked summary artifact rather
+  than as a replayable live API harness.
 - Rule-based coverage is limited to implemented marker patterns (EN/JP).
